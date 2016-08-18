@@ -1,3 +1,7 @@
+.idea
+.DS_Store
+js/.DS_Store
+
 # Logs
 logs
 *.log
