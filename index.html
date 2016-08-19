@@ -15,7 +15,43 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/normalize.css">
 
+    <script src="js/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="js/knockout/knockout-2.2.1.js"></script>
+    <script src="js/sevenSeg.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var viewModel = {
+                mainExampleValue: ko.observable(-5.234),
+                testValue1: ko.observable(-12.4),
+                testValue2: ko.observable(9876)
+            };
+            ko.applyBindings(viewModel);
+        });
+    </script>
 
+    <style type="text/css">
+
+        .warning {
+            text-align: center;
+        }
+
+        .exampleContainer
+        {
+            display: inline-block;
+            background-color: Black;
+            border-radius: 5px;
+            margin-left: 18px;
+            margin-right: 18px;
+            text-align: center;
+        }
+        .med-sevenSegArray5
+        {
+            padding: 0.25em;
+            height: 24px;
+            width: 160px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -33,7 +69,13 @@
                 <img src="images/search.png" style="width:160px;"/>
             </div>
         </div>
-        <div class="warning"></div>
+        <div class="warning">
+            <div class="exampleContainer">
+                <div data-bind="sevenSeg: { digits: 7, value: '0650239' }"
+                     class="med-sevenSegArray5">
+                </div>
+            </div>
+        </div>
         <div class="float-layout">
             <div class="left">
                 <div class="deploy-mon" id="deploy-mon">deploy monitor</div>
