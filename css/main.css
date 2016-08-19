@@ -72,18 +72,22 @@ body {
 }
 
 .left .deploy-mon {
-    height: 33%;
-    'border: 1px solid green;
+    height: 32%;
+    border-bottom: 1px solid #253980;
+    padding-bottom: 7px;
 }
 
 .left .yearly-warn {
-    height: 33%;
-    'border: 1px solid green;
+    height: 35%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #253980;
 }
 
 .left .monthly-rank {
-    height: 33%;
-    border: 1px solid green;
+    height: 32%;
+    padding-top: 8px;
+    'border: 1px solid green;
 }
 
 .center {

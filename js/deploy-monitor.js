@@ -52,6 +52,15 @@ option = {
   xAxis: {
     type: 'category',
     data: ['上海','深圳','合肥','成都','安徽','北京'],
+    axisLine: {
+      show: false,
+    },
+    axisTick: {
+      show: false,
+    },
+    splitLine: {
+      show: false,
+    },
     axisLabel: {
       textStyle: {
         color: '#fff',

@@ -44,6 +44,15 @@ option = {
         fontSize: 7,
       },
     },
+    axisLine: {
+      show: false,
+    },
+    axisTick: {
+      show: false,
+    },
+    splitLine: {
+      show: false,
+    },
   },
   yAxis: {
     type: 'value',
