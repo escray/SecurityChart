@@ -78,7 +78,7 @@ body {
 
 .left .yearly-warn {
     height: 33%;
-    border: 1px solid green;
+    'border: 1px solid green;
 }
 
 .left .monthly-rank {
