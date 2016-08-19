@@ -6,12 +6,16 @@
     <title>Security Chart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
-    <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
-    <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
-    <script type="text/javascript" src="js/echarts/map/js/world.js"></script>
-    <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
+
+    <!--<script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>-->
+    <!--<script type="text/javascript" src="js/echarts/map/js/china.js"></script>-->
+    <!--<script type="text/javascript" src="js/echarts/map/js/world.js"></script>-->
+    <!--<script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>-->
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/normalize.css">
+
+
 </head>
 <body>
     <div class="container">
@@ -29,11 +33,24 @@
                 <img src="images/search.png" style="width:160px;"/>
             </div>
         </div>
-        <div class="container float-layout" style="width: 100%; height: 400px">
-            <div class="child child-25">left 25%</div>
-            <div class="child child-50">center 50%</div>
-            <div class="child child-25">right 25%</div>
+        <div class="float-layout">
+            <div class="left">
+                <div class="deploy-mon" id="deploy-mon">deploy monitor</div>
+                <div class="yearly-warn">yearly warning count</div>
+                <div class="monthly-rank">monthly warning rank</div>
+            </div>
+            <div class="child center">
+                <div class="info-board">information board</div>
+                <div class="geo-visual">geo visual</div>
+                <div class="live-report">live report</div>
+            </div>
+            <div class="child right">
+                <div class="threat-compo">threat composition</div>
+                <div class="threat-source">threat source</div>
+                <div class="threat-trends">threat trends</div>
+            </div>
         </div>
     </div>
+    <script type="text/javascript" src="js/deploy-monitor.js"></script>
 </body>
 </html>
