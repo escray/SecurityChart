@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie-edge">
+    <title>Security Chart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
     <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
     <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
     <script type="text/javascript" src="js/echarts/map/js/world.js"></script>
     <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
-    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/normalize.css">
 </head>
 <body>
-    <div class="top" id="top" style="border-color: #ffffff; border-width: 1px; background-image: url(images/top_bg.png); background-repeat: repeat-x">top banner</div>
-    <div id="container" style="width: 600px; height: 400px">DEEPSEEKER</div>
+    <div class="top" id="top" ><!--style="border-color: #ffffff; border-width: 1px; background-image: url(images/top_bg.png); background-repeat: repeat-x"-->top banner</div>
+    <div class="container float-layout" style="width: 100%; height: 400px">
+        <div class="child child-25">left 25%</div>
+        <div class="child child-50">center 50%</div>
+        <div class="child child-25">right 25%</div>
+    </div>
 </body>
 </html>
