@@ -3,8 +3,6 @@
  */
 var dom = document.getElementById("threat-comp");
 var myChart = echarts.init(dom);
-var app = {};
-
 option = null;
 option = {
   textStyle: {
@@ -51,7 +49,9 @@ option = {
 
       labelLine: {
         normal: {
-          show: true,
+          show: false,
+          length: 5,
+          length2: 7,
         },
         emphasis: {
           show: false,

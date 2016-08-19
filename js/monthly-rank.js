@@ -71,16 +71,6 @@ option = {
       alignWithLabel: true,
     }
   },
-// ,
-//        {
-//            type: 'value',
-//            data: [ 1.2, 1.5, 2.3, 3.2, 3.8, 4.2, 4.8 ],
-//            axisTick: {
-//                alignWithLabel: true
-//            }
-//        }
-
-
   series: [
     {
       name: '月预警总数',

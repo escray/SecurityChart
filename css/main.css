@@ -59,6 +59,11 @@ body {
     'border: 2px solid red;
 }
 
+.warning {
+    height: 30px;
+
+}
+
 .float-layout {
     height: 100%;
     overflow: hidden;
@@ -119,18 +124,23 @@ body {
 
 .right .threat-comp {
 
-    height: 33%;
-    'border: 1px solid green;
+    height: 32%;
+    border-bottom: 1px solid #253980;
+    padding-top: 7px;
+    padding-bottom: 2px;
 }
 
 .right .threat-source {
-    height: 33%;
-    border: 1px solid green;
+    height: 32%;
+    border-bottom: 1px solid #253980;
+    padding-top: 7px;
+    padding-bottom: 2px;
 }
 
 .right .threat-trends {
     height: 33%;
-    border: 1px solid green;
+    padding-top: 7px;
+    'border: 1px solid green;
 }
 
 
