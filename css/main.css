@@ -91,7 +91,7 @@ body {
 }
 
 .center {
-    width: 50%;
+    width: 45%;
     height: 100%;
     float: left;
 }
@@ -112,14 +112,15 @@ body {
 }
 
 .right {
-    width: 25%;
+    width: 30%;
     height: 100%;
     float: left;
 }
 
-.right .threat-compo {
+.right .threat-comp {
+
     height: 33%;
-    border: 1px solid green;
+    'border: 1px solid green;
 }
 
 .right .threat-source {
