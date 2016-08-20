@@ -6,7 +6,6 @@
     <title>Security Chart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
-
     <!--<script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>-->
     <!--<script type="text/javascript" src="js/echarts/map/js/china.js"></script>-->
     <!--<script type="text/javascript" src="js/echarts/map/js/world.js"></script>-->
@@ -19,39 +18,6 @@
     <script src="js/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="js/knockout/knockout-2.2.1.js"></script>
     <script src="js/sevenSeg.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            var viewModel = {
-                mainExampleValue: ko.observable(-5.234),
-                testValue1: ko.observable(-12.4),
-                testValue2: ko.observable(9876)
-            };
-            ko.applyBindings(viewModel);
-        });
-    </script>
-
-    <style type="text/css">
-
-        .warning {
-            text-align: center;
-        }
-
-        .exampleContainer
-        {
-            display: inline-block;
-            background-color: Black;
-            border-radius: 5px;
-            margin-left: 18px;
-            margin-right: 18px;
-            text-align: center;
-        }
-        .med-sevenSegArray5
-        {
-            padding: 0.25em;
-            height: 24px;
-            width: 160px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -69,12 +35,14 @@
                 <img src="images/search.png" style="width:160px;"/>
             </div>
         </div>
-        <div class="warning">
-            <div class="exampleContainer">
-                <div data-bind="sevenSeg: { digits: 7, value: '0650239' }"
-                     class="med-sevenSegArray5">
+        <div class="warning" style="width:100%; text-align: center;">
+            今日全网预警
+            <div class="sevenSegContainer">
+                <div data-bind="sevenSeg: { digits: 7, value: '0650249' }"
+                     class="warningNum">
                 </div>
             </div>
+
         </div>
         <div class="float-layout">
             <div class="left">
@@ -83,7 +51,9 @@
                 <div class="monthly-rank" id="monthly-rank">monthly warning rank</div>
             </div>
             <div class="center">
-                <div class="info-board">information board</div>
+                <div class="info-board">
+                    <p class="info-text marquee">公告信息：kido 疫情爆发，请北京部署好防护端并尽快上线。禁止各网端开启8080端口！</p>
+                </div>
                 <div class="geo-visual">geo visual</div>
                 <div class="live-report">live report</div>
             </div>
@@ -101,5 +71,15 @@
     <script type="text/javascript" src="js/threat-comp.js"></script>
     <script type="text/javascript" src="js/threat-source.js"></script>
     <script type="text/javascript" src="js/threat-trends.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var viewModel = {
+                mainExampleValue: ko.observable(-5.234),
+                testValue1: ko.observable(-12.4),
+                testValue2: ko.observable(9876)
+            };
+            ko.applyBindings(viewModel);
+        });
+    </script>
 </body>
 </html>

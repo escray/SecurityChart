@@ -12,6 +12,7 @@ body {
 
     font-family: 'Open Sans', 'helvetica', arial, sans-serif, Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
     font-weight: 300;
+    font-size: 12px;
     color: #62686f;
 }
 
@@ -60,8 +61,29 @@ body {
 }
 
 .warning {
+    text-align: center;
+    font-size: 13px;
+    color: #d53c03;
     height: 30px;
+    vertical-align: text-top;
+    overflow: hidden;
+}
 
+.sevenSegContainer
+{
+    display: inline-block;
+    background-color: Black;
+    border-radius: 5px;
+    margin-left: 18px;
+    margin-right: 18px;
+    text-align: center;
+
+}
+.warningNum
+{
+    padding: 0.25em;
+    height: 20px;
+    width: 160px;
 }
 
 .float-layout {
@@ -98,13 +120,71 @@ body {
 .center {
     width: 45%;
     height: 100%;
+    background: url(../images/center-bg.png) no-repeat;
+    background-size: cover;
     float: left;
 }
 
 .center .info-board {
     height: 20px;
-    border: 1px solid white;
+    'border: 1px solid white;
+    background-color: #191b22;
 }
+
+/* Make it a marquee */
+.marquee {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes marquee {
+    0%   { text-indent: 20em }
+    100% { text-indent: -80em }
+}
+
+.info-text {
+    padding-left: 1.5em;
+    position: relative;
+    font-size: 11px;
+    color: #eaa510;
+}
+
+
+/* ::before was :before before ::before was ::before - kthx */
+.info-text:before, .info-text::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: -1em;
+    left: -1em;
+    width: .5em;
+    height: .5em;
+}
+
+.info-text:after, .info-text::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2em;
+    height: 2em;
+
+    background-image: url(../images/speaker.png);
+    'background-image: url(../images/speaker.png), linear-gradient(90deg, #000 70%, #191b22);
+    background-repeat: no-repeat;
+    background-size: 30px 16px;
+}
+
 
 .center .geo-visual {
     height: 60%;
@@ -142,5 +222,8 @@ body {
     padding-top: 7px;
     'border: 1px solid green;
 }
+
+
+
 
 
