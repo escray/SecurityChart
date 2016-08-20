@@ -5,11 +5,12 @@
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <title>Security Chart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
-    <!--<script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>-->
-    <!--<script type="text/javascript" src="js/echarts/map/js/china.js"></script>-->
-    <!--<script type="text/javascript" src="js/echarts/map/js/world.js"></script>-->
-    <!--<script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>-->
+    <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="js/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -54,8 +55,8 @@
                 <div class="info-board">
                     <p class="info-text marquee">公告信息：kido 疫情爆发，请北京部署好防护端并尽快上线。禁止各网端开启8080端口！</p>
                 </div>
-                <div class="geo-visual">geo visual</div>
-                <div class="live-report">live report</div>
+                <div class="geo-visual" id="geo-visual">geo visual</div>
+                <div class="live-report" id="live-report">live report</div>
             </div>
             <div class="right">
                 <div class="threat-comp" id="threat-comp">threat composition</div>
@@ -71,6 +72,7 @@
     <script type="text/javascript" src="js/threat-comp.js"></script>
     <script type="text/javascript" src="js/threat-source.js"></script>
     <script type="text/javascript" src="js/threat-trends.js"></script>
+    <script type="text/javascript" src="js/geo-visual.js"></script>
     <script type="text/javascript">
         $(function () {
             var viewModel = {
