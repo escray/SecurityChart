@@ -3,6 +3,8 @@
  */
 
 // TODO: bad taste, need refactor!
+var titleTop = 15;
+
 
 var securityDom = document.getElementById("security-index");
 var opDom = document.getElementById("op-index");
@@ -12,12 +14,26 @@ var securityChart = echarts.init(securityDom);
 var opChart = echarts.init(opDom);
 var virusChart = echarts.init(virusDom);
 
+var labelFromatter = {
+  normal: {
+    label: {
+
+      formatter: function (params) {
+        return 100 - params.value + '%'
+      },
+      textStyle: {
+        baseline: 'top'
+      }
+    }
+  },
+}
+
 securityOption = null;
 opOption = null;
 virusOption = null;
 
 
-var radius = [22, 28];
+var radius = [21, 25];
 
 securityOption = {
   textStyle: {
@@ -31,60 +47,66 @@ securityOption = {
       fontSize: 11,
     },
     x: 'center',
-    top: 10,
+    top: titleTop,
   },
   series: [
     {
+      name: '安全指数',
       type: 'pie',
       center: ['50%', '60%'],
       startAngle: 90,
       radius: radius,
       x: '0%', // for funnel
-      itemStyle: {
-        normal: {
-          label: {
-            formatter: '{c}',
-            textStyle: {
-              baseline: 'top',
-              fontSize: 20,
-              fontWeight: 'bolder',
-              fontFamily: 'Arial',
-            }
-          }
-        },
-      },
+      itemsStyle: labelFromatter,
       data: [
         {
-          name: 'other', value: 17, itemStyle: {
-          normal: {
-            color: '#1b672f',
-            label: {
-              show: false,
+          name: 'other',
+          value: 17,
+          itemStyle: {
+            normal: {
+              color: '#1b672f',
+              label: {
+                show: false,
+                position: 'center'
+              },
+              labelLine: {
+                show: false
+              }
             },
-            labelLine: {
-              show: false
+            emphasis: {
+              color: 'rgba(0,0,0,0)'
             }
           },
-        }
         },
         {
-          name: '安全指数', value: 83, itemStyle: {
-          normal: {
-            color: '#43955a',
-            label: {
-              show: true,
-              position: 'center',
-            },
-            labelLine: {
-              show: false,
-            },
-          }
-        }
+          name: '安全指数',
+          value: 83,
+
+          itemStyle: {
+            normal: {
+              color: '#43955a',
+              label: {
+                show: true,
+                position: 'center',
+                formatter: '{c}',
+                textStyle: {
+                  baseline: 'bottom',
+                  fontSize: 20,
+                  fontWeight: 'bolder',
+                  fontFamily: 'Arial',
+                }
+              },
+              labelLine: {
+                show: false
+              }
+            }
+          },
         }
       ]
     }
   ]
 };
+
 
 opOption = {
   textStyle: {
@@ -98,30 +120,17 @@ opOption = {
       fontSize: 11,
     },
     x: 'center',
-    top: 10,
+    top: titleTop,
   },
   series: [
     {
+      name: '运维指数',
       type: 'pie',
       center: ['50%', '60%'],
       startAngle: 90,
       radius: radius,
       x: '0%', // for funnel
-      itemStyle: {
-        normal: {
-          label: {
-
-            formatter: '{c}',
-            textStyle: {
-              baseline: 'top',
-
-              fontSize: 20,
-              fontWeight: 'bolder',
-              fontFamily: 'Arial',
-            }
-          }
-        },
-      },
+      itemsStyle: labelFromatter,
       data: [
         {
           name: 'other',
@@ -131,12 +140,16 @@ opOption = {
               color: '#ac8300',
               label: {
                 show: false,
+                position: 'center'
               },
               labelLine: {
                 show: false
               }
             },
-          }
+            emphasis: {
+              color: 'rgba(0,0,0,0)'
+            }
+          },
         },
         {
           name: '安全指数',
@@ -147,9 +160,20 @@ opOption = {
               label: {
                 show: true,
                 position: 'center',
+                formatter: '{c}',
+                textStyle: {
+                  baseline: 'bottom',
+                  fontSize: 20,
+                  fontWeight: 'bolder',
+                  fontFamily: 'Arial',
+                }
               },
+              labelLine: {
+                show: false
+              }
             }
-          }
+          },
+
         },
 
       ]
@@ -169,76 +193,60 @@ virusOption = {
       fontSize: 11,
     },
     x: 'center',
-    top: 10,
+    top: titleTop,
   },
   series: [
     {
       name: '疫情指数',
       type: 'pie',
       center: ['50%', '60%'],
-      //startAngle: 90,
+      startAngle: 90,
       radius: radius,
-      //x: '0%', // for funnel
-
-      label: {
-        normal: {
-          show: true,
-          formatter: '{c}',
-          position: 'center',
-          textStyle: {
-            // baseline: 'bottom',
-            fontSize: 20,
-            fontWeight: 'bolder',
-            fontFamily: 'Arial',
-          }
-        },
-        // emphasis: {
-        //   show: false,
-        // },
-      },
-
-      itemStyle : {
-        normal : {
-          label : {
-            formatter : '{c}',
-            textStyle: {
-              baseline: 'top',
-            }
-          }
-        },
-      },
+      x: '0%', // for funnel
+      itemsStyle: labelFromatter,
       data: [
         {
-          value: 52,
+          value: 45,
           name: 'other',
           itemStyle: {
             normal: {
+
               color: '#a93f0f',
               label: {
                 show: false,
-                postion: 'outside'
+                position: 'center'
               },
-              // labelLine: {
-              //   show: false
-              // }
+              labelLine: {
+                show: false
+              }
             },
-          }
+            emphasis: {
+              color: 'rgba(0,0,0,0)'
+            }
+          },
         },
         {
-          name: '安全指数',
-          value: 48,
+          name: '疫情指数',
+          value: 55,
           itemStyle: {
             normal: {
               color: '#ea5513',
               label: {
                 show: true,
-                //position: 'center',
+                position: 'center',
+                formatter: '{c}',
+                textStyle: {
+                  baseline: 'bottom',
+                  fontSize: 20,
+                  fontWeight: 'bolder',
+                  fontFamily: 'Arial',
+                }
               },
-              // labelLine: {
-              //   show: false,
-              // },
+              labelLine: {
+                show: false
+              }
             }
-        }
+          },
         }
       ]
     }
