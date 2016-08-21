@@ -429,7 +429,7 @@ option = {
       return params.name + ' : ' + params.value[2];
     }
   },
-  
+
   // legend: {
   //   orient: 'vertical',
   //   y: 'bottom',
@@ -458,11 +458,11 @@ option = {
         show: false
       }
     },
-    roam: true,
+    roam: false,
     itemStyle: {
       normal: {
         areaColor: '#323c48',
-        borderColor: '#111'
+        borderColor: '#242a31'
       },
       emphasis: {
         areaColor: '#2a333d'
