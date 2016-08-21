@@ -206,7 +206,49 @@ body {
     height: 15%;
     background: url(../images/index-bg.png) center no-repeat;
     background-size: 95% 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     'border: 1px solid blue;
+}
+
+.center .threat-index .info-brief {
+    height: 100%;
+    width: 36%;
+    float: left;
+    'border: 1px solid white;
+}
+
+.center .threat-index .info-brief .list-title {
+    color: #ffffff;
+    font-size: 11px;
+    margin-left: 20px;
+}
+
+.center .threat-index .info-brief ul li{
+    list-style: none;
+    color: #00c6ff;
+    font-size: 10px;
+}
+
+.center .threat-index .info-brief ul{
+    content: attr(data-header);
+    font-size: 110%;
+    font-weight: bold;
+    margin-left: -15px;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px
+}
+
+
+.center .threat-index .index-list {
+    height: 100%;
+    width: 56%;
+    border: 1px solid yellow;
+    float: left;
 }
 
 .center .live-report {
