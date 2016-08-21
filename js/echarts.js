@@ -1362,10 +1362,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                );
 	            }
 	            if (!dom) {
-	                throw new Error('Initialize failed: invalid dom.');
+	                throw new Error('Initialize failed: invalid securityDom.');
 	            }
 	            if (zrUtil.isDom(dom) && dom.nodeName.toUpperCase() !== 'CANVAS' && (!dom.clientWidth || !dom.clientHeight)) {
-	                console.warn('Can\'t get dom width or height');
+	                console.warn('Can\'t get securityDom width or height');
 	            }
 	        }
 
@@ -2649,7 +2649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            else if (
 	                !isBuildInObject(source)
-	                // 是否为 dom 对象
+	                // 是否为 securityDom 对象
 	                && !isDom(source)
 	            ) {
 	                result = {};
@@ -18383,7 +18383,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Event} event
 	         */
 	        mousemove: function (event) {
-	            event = normalizeEvent(this.dom, event);
+	            event = normalizeEvent(this.securityDom, event);
 
 	            this.trigger('mousemove', event);
 	        },
@@ -18394,13 +18394,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {Event} event
 	         */
 	        mouseout: function (event) {
-	            event = normalizeEvent(this.dom, event);
+	            event = normalizeEvent(this.securityDom, event);
 
 	            var element = event.toElement || event.relatedTarget;
-	            if (element != this.dom) {
+	            if (element != this.securityDom) {
 	                while (element && element.nodeType != 9) {
 	                    // 忽略包含在root中的dom引起的mouseOut
-	                    if (element === this.dom) {
+	                    if (element === this.securityDom) {
 	                        return;
 	                    }
 
@@ -18420,7 +18420,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // Default mouse behaviour should not be disabled here.
 	            // For example, page may needs to be slided.
 
-	            event = normalizeEvent(this.dom, event);
+	            event = normalizeEvent(this.securityDom, event);
 
 	            this._lastTouchMoment = new Date();
 
@@ -18443,7 +18443,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         */
 	        touchmove: function (event) {
 
-	            event = normalizeEvent(this.dom, event);
+	            event = normalizeEvent(this.securityDom, event);
 
 	            processGesture(this, event, 'change');
 
@@ -18462,7 +18462,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         */
 	        touchend: function (event) {
 
-	            event = normalizeEvent(this.dom, event);
+	            event = normalizeEvent(this.securityDom, event);
 
 	            processGesture(this, event, 'end');
 
@@ -18481,7 +18481,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // Common handlers
 	    zrUtil.each(['click', 'mousedown', 'mouseup', 'mousewheel', 'dblclick'], function (name) {
 	        domHandlers[name] = function (event) {
-	            event = normalizeEvent(this.dom, event);
+	            event = normalizeEvent(this.securityDom, event);
 	            this.trigger(name, event);
 	        };
 	    });
@@ -19313,7 +19313,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                this.insertLayer(zlevel, layer);
 
-	                // Context is created after dom inserted to document
+	                // Context is created after securityDom inserted to document
 	                // Or excanvas will get 0px clientWidth and clientHeight
 	                layer.initContext();
 	            }
@@ -19781,8 +19781,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * 创建dom
 	     *
 	     * @inner
-	     * @param {string} id dom id 待用
-	     * @param {string} type dom type，such as canvas, div etc.
+	     * @param {string} id securityDom id 待用
+	     * @param {string} type securityDom type，such as canvas, div etc.
 	     * @param {Painter} painter painter instance
 	     * @param {number} number
 	     */
@@ -19802,7 +19802,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        newDom.height = height * dpr;
 
 	        // id不作为索引用，避免可能造成的重名，定义为私有属性
-	        newDom.setAttribute('data-zr-dom-id', id);
+	        newDom.setAttribute('data-zr-securityDom-id', id);
 	        return newDom;
 	    }
 
@@ -19880,7 +19880,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        __dirty: true,
 
 	        initContext: function () {
-	            this.ctx = this.dom.getContext('2d');
+	            this.ctx = this.securityDom.getContext('2d');
 
 	            this.ctx.dpr = this.dpr;
 	        },
@@ -19903,7 +19903,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        resize: function (width, height) {
 	            var dpr = this.dpr;
 
-	            var dom = this.dom;
+	            var dom = this.securityDom;
 	            var domStyle = dom.style;
 	            var domBack = this.domBack;
 
@@ -19928,7 +19928,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	         * @param {boolean} clearAll Clear all with out motion blur
 	         */
 	        clear: function (clearAll) {
-	            var dom = this.dom;
+	            var dom = this.securityDom;
 	            var ctx = this.ctx;
 	            var width = dom.width;
 	            var height = dom.height;
