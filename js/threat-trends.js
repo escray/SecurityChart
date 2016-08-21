@@ -1,6 +1,7 @@
 /**
  * Created by escray on 8/19/16.
  */
+// TODO: Line Easing
 var dom = document.getElementById("threat-trends");
 var myChart = echarts.init(dom);
 option = null;
@@ -26,8 +27,20 @@ option = {
   legend: {
     left: 'center',
     bottom: 1,
-    itemWidth: 20,
-    data:['网络入侵行为','溢出攻击行为','木马恶意程序'],
+    itemWidth: 16,
+    data:[
+      {
+        name: '网络入侵行为',
+        icon: 'roundRect',
+      },
+      {
+        name: '溢出攻击行为',
+        icon: 'roundRect',
+      },
+      {
+        name: '木马恶意程序',
+        icon: 'roundRect',
+      }],
     //bottom: 10,
     textStyle: {
       fontSize: 9,
@@ -86,6 +99,16 @@ option = {
       name:'网络入侵行为',
       type:'line',
       stack: '总量',
+      lineStyle: {
+        normal: {
+          color: '#ffb248',
+        },
+      },
+      itemStyle: {
+        normal: {
+          color: '#ffb248',
+        },
+      },
       smooth: true,
       smoothMonotone: 'y',
       data:[120, 132, 101, 134, 90, 230, 210, 200, 180, 160, 210, 145]
@@ -93,6 +116,11 @@ option = {
     {
       name:'溢出攻击行为',
       type:'line',
+      itemStyle: {
+        normal: {
+          color: '#b8110d',
+        },
+      },
       stack: '总量',
       smooth: true,
       smoothMonotone: 'y',
@@ -102,6 +130,11 @@ option = {
       name:'木马恶意程序',
       type:'line',
       stack: '总量',
+      itemStyle: {
+        normal: {
+          color: '#22c3aa',
+        },
+      },
       smooth: true,
       smoothMonotone: 'y',
       data:[150, 232, 201, 154, 190, 330, 410, 380, 420, 230, 320, 360]
