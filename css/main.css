@@ -16,6 +16,10 @@ body {
     color: #62686f;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     width: 1024px;
     height: 768px;
@@ -198,6 +202,11 @@ body {
     font-size: 10px;
     font-family: "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑";
     text-align: center;
+}
+
+.center .dynamic-title a {
+    text-decoration: none;
+    color: #00c6ff;
 }
 
 .center .geo-visual {
