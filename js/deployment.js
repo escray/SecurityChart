@@ -5,6 +5,5 @@ var url = "show-map.js";
 var map = "china";
 
 $(document).ready(function() {
-  showMap('deploy-china', 'china');
 
 });
