@@ -1,7 +1,12 @@
+var elementId = "geo-visual";
+var mapName = 'china';
+
 /**
  * Created by escray on 8/20/16.
  */
-var dom = document.getElementById("geo-visual");
+
+
+var dom = document.getElementById(elementId);
 var myChart = echarts.init(dom);
 
 option = null;
@@ -407,6 +412,7 @@ var convertData = function (data) {
 };
 
 
+
 option = {
   // backgroundColor: '#404a59',
   textStyle: {
@@ -452,7 +458,7 @@ option = {
   //   }
   // },
   geo: {
-    map: 'china',
+    map: mapName,
     label: {
       emphasis: {
         show: false

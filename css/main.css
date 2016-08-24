@@ -331,5 +331,38 @@ a {
     float: left;
 }
 
+.deploy-map {
+    height: 45%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid white;
+}
 
+.deploy-map .deploy-china {
+    flow: left;
+    width: 45%;
+
+    border: 1px solid yellow;
+}
+
+.deploy-map .deploy-local {
+    flow: left;
+    width: 30%;
+
+    border: 1px solid blue;
+}
+
+.deploy-map .deploy-detail {
+    flow: left;
+    width: 25%;
+
+    border: 1px solid red;
+}
+
+.deploy-list {
+    height: 50%;
+    border: 1px solid green;
+}
 
