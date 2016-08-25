@@ -1,0 +1,65 @@
+
+.container {
+    width: 1024px;
+    height: 768px;
+    margin: 0 auto;
+'border: 2px solid blue;
+display: table;
+}
+
+.deploy-map {
+    height: 45%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid white;
+}
+
+.deploy-map .deploy-china {
+    flow: left;
+    width: 40%;
+
+    border: 1px solid yellow;
+}
+
+.deploy-map .deploy-local {
+    flow: left;
+    width: 25%;
+
+    border: 1px solid blue;
+}
+
+.deploy-map .deploy-detail {
+    flow: left;
+    width: 35%;
+
+    border: 1px solid red;
+}
+
+.deploy-list {
+    height: 50%;
+    border: 1px solid green;
+}
+
+
+.threat-index {
+    height: 30%;
+    background: url(../images/index-bg.png) center no-repeat;
+    background-size: 95% 90%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+'border: 1px solid blue;
+}
+
+.security-index,
+.op-index,
+.virus-index
+{
+    height: 100%;
+    width: 20%;
+    border: 1px solid yellow;
+    float: left;
+}

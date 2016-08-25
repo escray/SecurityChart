@@ -10,6 +10,8 @@ var securityDom = document.getElementById("security-index");
 var opDom = document.getElementById("op-index");
 var virusDom = document.getElementById("virus-index");
 
+
+
 var securityChart = echarts.init(securityDom);
 var opChart = echarts.init(opDom);
 var virusChart = echarts.init(virusDom);
@@ -253,14 +255,18 @@ virusOption = {
   ]
 }
 
+
 if (securityOption && typeof securityOption === "object") {
+
   securityChart.setOption(securityOption, true);
 }
 
 if (opOption && typeof opOption === "object") {
+
   opChart.setOption(opOption, true);
 }
 
 if (virusOption && typeof virusOption == "object") {
+
   virusChart.setOption(virusOption, true);
 }
