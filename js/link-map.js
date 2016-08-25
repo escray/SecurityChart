@@ -432,23 +432,6 @@ function showProvince(selectedProvince) {
     descDom.innerHTML = params.name;
   });
 
-  // var ecConfig = require('echarts/config');
-  // localChart.on(ecConfig.EVENT.MAP_SELECTED, function (param) {
-  //   console.log('here');
-  //   var selected = param.selected;
-  //   var selectedCity;
-  //   var name;
-  //   for (var i = 0, l = localOption.series[0].data.length; i < l; i++) {
-  //     name = localOption.series[0].data[i].name;
-  //     localOption.series[0].data[i].selected = selected[name];
-  //     if (selected[name]) {
-  //       selectedCity = name;
-  //     }
-  //   }
-  //   localChart.setOption(localOption, true);
-  // });
-
-  //chinaChart.setOption(option, true);
   localChart.setOption(localOption, true);
 }
 
@@ -459,10 +442,19 @@ function refresh() {
 
   chinaChart = echarts.init(chinaDom);
   localChart = echarts.init(localDom);
-//    window.onresize = chinaChart.resize;
+  window.onresize = chinaChart.resize;
+
   var chinaOption = {
+
+    textStyle: {
+      fontFamily: ['STXihei', 'Microsoft YaHei'],
+      fontSize: 10,
+    },
     tooltip: {
-      trigger: 'item'
+      trigger: 'item',
+      formatter: function(params) {
+        return params.name + ' : ' + params.value[2];
+      },
     },
     toolbox: {
       show: true,
@@ -480,8 +472,10 @@ function refresh() {
           trigger: 'item',
           formatter: '{b}'
         },
-        name: '选择器',
+        name: 'selector',
         type: 'map',
+
+
         mapType: 'china',
         mapLocation: {
           x: 'auto',
@@ -491,7 +485,7 @@ function refresh() {
         roam: false,
         selectedMode: 'single',
         itemStyle: {
-          //normal:{label:{show:true}},
+          normal:{label:{show:true}},
           emphasis: {label: {show: true}}
         },
         data: [
@@ -534,10 +528,10 @@ function refresh() {
     ],
     animation: false
   };
-  chinaChart.setOption(chinaOption, true)
+  //chinaChart.setOption(chinaOption, true)
   showProvince('浙江');
   //var ecConfig = require('echarts/config');
-  //chinaChart.on(ecConfig.EVENT.MAP_SELECTED, function (param) {
+
   chinaChart.on('mapSelected', function (param) {
     var selected = param.selected;
     var selectedProvince;
@@ -589,6 +583,7 @@ function launchExample() {
     [
       'echarts',
       'echarts/chart/map',
+      'echarts/chart/scatter',
     ],
     requireCallback
   );
