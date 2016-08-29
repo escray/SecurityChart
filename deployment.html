@@ -12,12 +12,14 @@
     <!--<script type="text/javascript" src="js/echarts/map/js/zhejiang.js"></script>-->
     <!--<script type="text/javascript" src="js/echarts/map/js/world.js"></script>-->
     <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <script src="js/linkmap/echarts.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/deployment.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <script src="js/jquery/2.0.2/jquery.min.js"></script>
     <script src="js/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -31,7 +33,21 @@
             <div class="deploy-china" id="deploy-china" style="background-color: black">deploy china</div>
             <div class="deploy-local" id="deploy-local">deploy local</div>
             <div class="deploy-detail" id="deploy-detail">
-                <div class="local-brief" id="local-brief" style="width: 100%; height: 60%"></div>
+                <div class="local-brief" id="local-brief" style="width: 100%; height: 60%">
+                    <span class="province" id="province">浙江省</span>&nbsp;&nbsp;<span>安全信息摘要</span>
+                    <ul class="local-detail" id="local-detail">
+                        <li>部署总数&nbsp;:&nbsp;&nbsp;
+                            <span style="color:green">已上线</span>&nbsp;&nbsp;
+                            <span style="color:#62686f">未上线</span>&nbsp;&nbsp;
+                            <span style="color:#d7422c">未部署</span>&nbsp;&nbsp;
+                            <span style="color:#ff3c00">已卸载</span>
+                        </li>
+                        <li>管理网段&nbsp;:&nbsp;&nbsp;192.168.1.1</li>
+                        <li>防护总时长&nbsp;:&nbsp;&nbsp;24801分钟</li>
+                        <li>查杀威胁总数&nbsp;:&nbsp;&nbsp;10573</li>
+                        <li>被卸载次数&nbsp;:&nbsp;&nbsp;78</li>
+                    </ul>
+                </div>
                 <div class="threat-index" id="threat-index">
                     <div class="security-index" id="security-index"></div>
                     <div class="op-index" id="op-index"></div>

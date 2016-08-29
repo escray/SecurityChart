@@ -2,7 +2,7 @@ var chinaChart;
 var localChart;
 var chinaDom = document.getElementById('deploy-china');
 var localDom = document.getElementById('deploy-local');
-var descDom = document.getElementById('deploy-detail');
+var descDom = document.getElementById('local-brief');
 
 function requireCallback(ec) {
   echarts = ec;

@@ -4,7 +4,11 @@
     height: 768px;
     margin: 0 auto;
 'border: 2px solid blue;
-display: table;
+    display: table;
+    font-family: 'Open Sans', 'helvetica', arial, sans-serif, Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: #62686f;
 }
 
 .deploy-map {
@@ -20,21 +24,21 @@ display: table;
     flow: left;
     width: 40%;
 
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }
 
 .deploy-map .deploy-local {
     flow: left;
     width: 25%;
 
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
 }
 
 .deploy-map .deploy-detail {
     flow: left;
     width: 35%;
 
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .deploy-list {
@@ -60,6 +64,25 @@ display: table;
 {
     height: 100%;
     width: 20%;
-    border: 1px solid yellow;
+    'border: 1px solid yellow;
     float: left;
+}
+
+.local-brief {
+    width: 60%;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.local-detail {
+    color: #00c6ff;
+    line-height: 1.5em;
+    list-style: none;
+}
+
+.province {
+    color: #ffffff;
+    font-size: 14px;
+    margin-left: 20px;
 }
