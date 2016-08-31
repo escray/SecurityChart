@@ -16,8 +16,8 @@
 
 
     <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />-->
-    <!--<script type="text/javascript" src="js/angular.min.js"></script>-->
-    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <!--<script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>-->
     <script type="text/javascript" src="js/deployment.js"></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -69,8 +69,8 @@
             </div>
         </div>
 
-        <div class="deploy-list" id="deploy-list1">
-            <section ng-controller="PanelController as tab">
+        <div class="deploy-list" id="deploy-list">
+            <section ng-controller="PanelController as tab" style="height: 100%">
                 <ul class="nav nav-pills">
                     <li ng-class="{ active: tab.isSet(1) }">
                         <a href="" ng-click="tab.setTab(1)">全部</a>
@@ -93,7 +93,12 @@
                     <h4 style="color:red">一级中心</h4>
                 </div>
                 <div  ng-show="tab.isSet(3)">
-                    <h4 style="color:red">二级中心</h4>
+                    <!--<div style="height: 80%">-->
+                    <div class="deploy-city" id="deploy-beijing">beijing</div>
+                    <div class="deploy-city" id="deploy-shanghai">shanghai</div>
+                    <div class="deploy-city" id="deploy-shenzhen">shenzhen</div>
+                    <div class="deploy-city" id="deploy-chongqing">chongqing</div>
+                    <!--</div>-->
                 </div>
                 <div  ng-show="tab.isSet(4)">
                     <h4 style="color:red">客户端</h4>

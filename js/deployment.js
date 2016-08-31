@@ -7,7 +7,7 @@
 
   app.controller("PanelController", function(){
 
-    this.tab = 1;
+    this.tab = 3;
 
     this.isSet = function(checkTab) {
       return this.tab === checkTab;
@@ -16,18 +16,14 @@
     this.setTab = function(activeTab) {
       this.tab = activeTab;
     };
-
-    // this.selectTab = function(setTab) {
-    //   this.tab = setTab;
-    // };
-    //
-    // this.isSelected = function(checkTab) {
-    //   return this.tab === checkTab;
-    // };
   });
 
 
+
+
 })();
+
+
 
 var items = [
   {

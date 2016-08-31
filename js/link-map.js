@@ -4,6 +4,132 @@ var chinaDom = document.getElementById('deploy-china');
 var localDom = document.getElementById('deploy-local');
 var descDom = document.getElementById('local-brief');
 
+
+var createLocalDetailBar = function(cityName, elementId, cityData){
+  var bjDom = document.getElementById(elementId);
+  var bjChart = echarts.init(bjDom);
+  var bjoption = {
+    textStyle: {
+      fontFamily: ['STXihei', 'Microsoft YaHei'],
+      fontSize: 10,
+    },
+    title: {
+      text: cityName,
+      textStyle: {
+        fontSize: 14,
+        color: '#acacac',
+      },
+      top: 'middle',
+    },
+    color: ['#3398DB'],
+    tooltip: {
+      name: cityName,
+      trigger: 'axis',
+      axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+        type: 'shadow'          // 默认为直线，可选为：'line' | 'shadow'
+      },
+      // formatter: '{b0}:{c0}' + '\n未安装' + ' : {c1}',
+    },
+    grid: {
+      left: '5%',
+      right: '4%',
+
+      // bottom: 1,
+      containLabel: false
+    },
+    yAxis: [
+      {
+        type: 'category',
+
+        // data: ['已上线', '未上线', '未安装', '已卸载'],
+        data: [cityName],
+        splitLine: {
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+          alignWithLabel: true,
+        }
+      }
+    ],
+    xAxis: {
+      type: 'value',
+      axisLabel: {
+        show: false,
+      },
+      axisLine: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+    },
+    series: [
+
+      {
+        name: '已上线',
+        type: 'bar',
+        data: [cityData[0]],
+        itemStyle: {
+          normal: {
+            color: '#3e9256',
+          },
+        },
+
+      },
+      {
+        name: '未上线',
+        type: 'bar',
+        data: [cityData[1]],
+        itemStyle: {
+          normal: {
+            color: '#d64518',
+          },
+        },
+      },
+      {
+        name: '未安装',
+        type: 'bar',
+        data: [cityData[2]],
+        itemStyle: {
+          normal: {
+            color: '#ffc000',
+          },
+        },
+      },
+      {
+        name: '已卸载',
+        type: 'bar',
+        data: [cityData[3]],
+        itemStyle: {
+          normal: {
+            color: '#762dae',
+          },
+        },
+      }
+    ],
+  };
+  if (bjoption && typeof bjoption === "object") {
+    bjChart.setOption(bjoption, true);
+  }
+};
+
+createLocalDetailBar('北京', 'deploy-beijing', [56, 171, 87, 23]);
+createLocalDetailBar('上海', 'deploy-shanghai', [156, 71, 87, 20]);
+createLocalDetailBar('深圳', 'deploy-shenzhen', [86, 67, 57, 13]);
+createLocalDetailBar('重庆', 'deploy-chongqing', [76, 11, 14, 9]);
+
+
+
 function requireCallback(ec) {
   echarts = ec;
   refresh();
@@ -15,8 +141,6 @@ function showProvince(selectedProvince) {
     tooltip: {
       trigger: 'item',
       position: [400, 200],
-
-
     },
     toolbox: {
       show: true,
@@ -452,7 +576,7 @@ function refresh() {
     },
     tooltip: {
       trigger: 'item',
-      formatter: function(params) {
+      formatter: function (params) {
         return params.name + ' : ' + params.value[2];
       },
     },
@@ -485,7 +609,7 @@ function refresh() {
         roam: false,
         selectedMode: 'single',
         itemStyle: {
-          normal:{label:{show:true}},
+          normal: {label: {show: true}},
           emphasis: {label: {show: true}}
         },
         data: [
@@ -545,9 +669,9 @@ function refresh() {
     }
     console.log(selectedProvince);
     if (typeof selectedProvince == 'undefined') {
-    // chinaOption.series.splice(1);
-    // chinaOption.legend = null;
-    // chinaOption.dataRange = null;
+      // chinaOption.series.splice(1);
+      // chinaOption.legend = null;
+      // chinaOption.dataRange = null;
       chinaChart.setOption(chinaOption, true);
       return;
     }
