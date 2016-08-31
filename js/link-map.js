@@ -14,7 +14,8 @@ var createLocalDetailBar = function(cityName, elementId, cityData){
       fontSize: 10,
     },
     title: {
-      text: cityName,
+      // TODO: get rid of the ' '
+      text: '  ' + cityName,
       textStyle: {
         fontSize: 14,
         color: '#acacac',
@@ -31,7 +32,7 @@ var createLocalDetailBar = function(cityName, elementId, cityData){
       // formatter: '{b0}:{c0}' + '\n未安装' + ' : {c1}',
     },
     grid: {
-      left: '5%',
+      left: '6%',
       right: '4%',
 
       // bottom: 1,
@@ -42,12 +43,18 @@ var createLocalDetailBar = function(cityName, elementId, cityData){
         type: 'category',
 
         // data: ['已上线', '未上线', '未安装', '已卸载'],
-        data: [cityName],
+        data: [{
+          value:cityName,
+          textStyle: {align: 'right',},
+        }],
         splitLine: {
           show: false,
         },
         axisLine: {
-          show: false,
+          show: true,
+          lineStyle: {
+            color: '#aaaaaa',
+          },
         },
         axisLabel: {
           show: false,

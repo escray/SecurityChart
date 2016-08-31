@@ -25,7 +25,7 @@
 
     <script src="js/linkmap/echarts.js"></script>
 
-    <link rel="stylesheet" href="css/main.css" />
+    <!--<link rel="stylesheet" href="css/main.css" />-->
     <link rel="stylesheet" href="css/deployment.css" />
     <link rel="stylesheet" href="css/normalize.css" />
 
@@ -35,8 +35,6 @@
 </head>
 <body>
     <div class="container">
-
-
         <div class="header" id="header">header
             <script>$("#header").load("header.html")</script>
         </div>
@@ -68,10 +66,9 @@
                 </div>
             </div>
         </div>
-
         <div class="deploy-list" id="deploy-list">
-            <section ng-controller="PanelController as tab" style="height: 100%">
-                <ul class="nav nav-pills">
+            <section ng-controller="PanelController as tab">
+                <ul class="nav nav-pills"  style="background-color: #000000; border-bottom: 0.5px groove;">
                     <li ng-class="{ active: tab.isSet(1) }">
                         <a href="" ng-click="tab.setTab(1)">全部</a>
                     </li>
