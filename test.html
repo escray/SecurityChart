@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+    <!--<link data-require="bootstrap-css" data-semver="3.1.1" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />-->
+    <!--<link data-require="semantic-ui@*" data-semver="0.9.6" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.9.6/css/semantic.min.css" />-->
+    <!--<script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+    <!--<script data-require="semantic-ui@*" data-semver="0.9.6" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.9.6/javascript/semantic.min.js"></script>-->
+    <!--<link rel="stylesheet" href="style.css" />-->
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+
+    <!--<script type="text/javascript" src="js/angular.min.js"></script>-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/deployment.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />-->
+    <!--&lt;!&ndash;<script type="text/javascript" src="js/angular.min.js"></script>&ndash;&gt;-->
+    <!--<script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>-->
+    <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
+    <!--<script type="text/javascript" src="js/echarts/map/js/china.js"></script>-->
+    <!--<script type="text/javascript" src="js/echarts/map/js/zhejiang.js"></script>-->
+    <script type="text/javascript" src="js/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+
+    <script src="js/linkmap/echarts.js"></script>
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/deployment.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+
+
+    <script src="js/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/jqueryui/1.10.3/jquery-ui.min.js"></script>
+</head>
+<!--<body ng-controller="ListController as list">-->
+<body>
+<div class="deploy-list" id="deploy-list">
+    <section ng-controller="PanelController as tab">
+        <ul class="nav nav-pills">
+            <li ng-class="{ active: tab.isSet(1) }">
+                <a href="" ng-click="tab.setTab(1)">全部</a>
+            </li>
+            <li ng-class="{ active: tab.isSet(2) }">
+                <a href="" ng-click="tab.setTab(2)">一级中心</a>
+            </li>
+            <li ng-class="{ active: tab.isSet(3) }">
+                <a href="" ng-click="tab.setTab(3)">二级中心</a>
+            </li>
+            <li ng-class="{ active: tab.isSet(4) }">
+                <a href="" ng-click="tab.setTab(4)">客户端
+                </a>
+            </li>
+        </ul>
+
+        <div ng-show="tab.isSet(1)">
+            <h4>全部</h4>
+        </div>
+        <div ng-show="tab.isSet(2)">
+            <h4>一级中心</h4>
+        </div>
+        <div ng-show="tab.isSet(3)">
+
+            <h4>二级中心</h4>
+        </div>
+        <div ng-show="tab.isSet(4)">
+            <h4>客户端</h4>
+        </div>
+    </section>
+</div>
+
+<div class="deploy-list" id="deploy-list1">
+    <section ng-controller="PanelController as tab">
+        <ul class="nav nav-pills">
+            <li ng-class="{ active: tab.isSet(1) }">
+                <a href="" ng-click="tab.setTab(1)">全部</a>
+            </li>
+            <li ng-class="{ active: tab.isSet(2) }">
+                <a href="" ng-click="tab.setTab(2)">一级中心</a>
+            </li>
+            <li ng-class="{ active: tab.isSet(3) }">
+                <a href="" ng-click="tab.setTab(3)">二级中心</a>
+            </li>
+            <li ng-class="{ active: tab.isSet(4) }">
+                <a href="" ng-click="tab.setTab(4)">客户端
+                </a>
+            </li>
+        </ul>
+
+        <div ng-show="tab.isSet(1)">
+            <h4 style="color:red">全部</h4>
+        </div>
+
+        <div ng-show="tab.isSet(2)">
+            <h4 style="color:red">一级中心</h4>
+        </div>
+        <div  ng-show="tab.isSet(3)">
+
+            <h4 style="color:red">二级中心</h4>
+            <P>{{ 1 + 1}}</P>
+        </div>
+        <div  ng-show="tab.isSet(4)">
+            <h4 style="color:red">客户端</h4>
+        </div>
+    </section>
+</div>
+
+
+</body>
+</html>

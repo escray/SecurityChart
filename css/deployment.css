@@ -49,7 +49,8 @@
 
 .threat-index {
     height: 30%;
-    background: url(../images/index-bg.png) center no-repeat;
+    /*background: url(../images/index-bg.png) center no-repeat;*/
+    background: none;
     background-size: 95% 90%;
     overflow: hidden;
     margin: 0 auto;
