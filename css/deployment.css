@@ -1,46 +1,3 @@
-
-.header {
-    width: 100%;
-    height: 36px;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    border-bottom: 1px groove #aaaaaa;
-
-    vertical-align: bottom;
-    background: url(../images/head-bg.png) fixed;
-    background-size: cover;
-'display: inline-block;
-'border: 2px solid red;
-}
-
-.logo {
-    width: 20%;
-    display: inline-block;
-    text-align: left;
-'border: 2px solid red;
-}
-
-.weather {
-    width: 20%;
-    display: inline-block;
-    text-align: center;
-'border: 2px solid red;
-}
-
-.user {
-    width: 38%;
-    display: inline-block;
-    text-align: right;
-'border: 2px solid red;
-}
-
-.search {
-    width: 18%;
-    display: inline-block;
-    text-align: center;
-'border: 2px solid red;
-}
-
 body {
     height: 100%;
     margin: 0;
@@ -73,7 +30,7 @@ body {
     overflow: hidden;
     margin: 0 auto;
     display: flex;
-    background: url(../images/deploy-bg.png);
+    background: url(../images/deploy-bg.jpg) fixed;
     /*border: 1px solid white;*/
 }
 
