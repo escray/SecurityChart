@@ -44,7 +44,7 @@
             <div class="deploy-china" id="deploy-china" style="background-color: black">deploy china</div>
             <div class="deploy-local" id="deploy-local">deploy local</div>
             <div class="deploy-detail" id="deploy-detail">
-                <div class="local-brief" id="local-brief" style="width: 100%; height: 60%" ng-controller="DetailController as detail">
+                <div class="local-brief" id="local-brief" style="width: 100%; height: 60%">
                     <section>
                         <span class="province" id="province"></span>&nbsp;&nbsp;<span>安全信息摘要</span>
                         <ul class="local-detail" id="local-detail" >
@@ -55,26 +55,11 @@
                                 <span style="color:#ff3c00">已卸载</span>
                             </li>
                             <li>管理网段&nbsp;:&nbsp;&nbsp;<span id="local-net"></span></li>
-                            <li>防护总时长&nbsp;:&nbsp;&nbsp;<span id="local-timer"></span>{{detail.localDetail.timer}}</li>
-                            <li>查杀威胁总数&nbsp;:&nbsp;&nbsp;<span id="local-count"></span>{{detail.localDetail.count}}</li>
+                            <li>防护总时长&nbsp;:&nbsp;&nbsp;<span id="local-timer"></span></li>
+                            <li>查杀威胁总数&nbsp;:&nbsp;&nbsp;<span id="local-count"></span></li>
                             <li>被卸载次数&nbsp;:&nbsp;&nbsp;<span id="local-uninstall"></span></li>
                         </ul>
                     </section>
-                    <!--<section>-->
-                    <!--<span class="province" id="province">{{detail.localDetail.name}}</span>&nbsp;&nbsp;<span>安全信息摘要</span>-->
-                    <!--<ul class="local-detail" id="local-detail" >-->
-                        <!--<li>部署总数&nbsp;:&nbsp;&nbsp;-->
-                            <!--<span style="color:green">已上线</span>&nbsp;&nbsp;-->
-                            <!--<span style="color:#62686f">未上线</span>&nbsp;&nbsp;-->
-                            <!--<span style="color:#d7422c">未部署</span>&nbsp;&nbsp;-->
-                            <!--<span style="color:#ff3c00">已卸载</span>-->
-                        <!--</li>-->
-                        <!--<li>管理网段&nbsp;:&nbsp;&nbsp;{{detail.localDetail.net}}</li>-->
-                        <!--<li>防护总时长&nbsp;:&nbsp;&nbsp;{{detail.localDetail.timer}}</li>-->
-                        <!--<li>查杀威胁总数&nbsp;:&nbsp;&nbsp;{{detail.localDetail.count}}</li>-->
-                        <!--<li>被卸载次数&nbsp;:&nbsp;&nbsp;{{detail.localDetail.uninstall}}</li>-->
-                    <!--</ul>-->
-                    <!--</section>-->
                 </div>
                 <div class="threat-index" id="threat-index">
                     <div class="security-index" id="security-index"></div>
@@ -84,6 +69,7 @@
             </div>
         </div>
         <div class="deploy-list" id="deploy-list">
+            <img src="images/deploy-legend.png" style="float: right; height: 36px"/>
             <section ng-controller="PanelController as tab">
                 <ul class="nav nav-pills"  style="background-color: #000000; border-bottom: 0.5px groove;">
                     <li ng-class="{ active: tab.isSet(1) }">
