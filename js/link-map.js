@@ -140,6 +140,10 @@ createLocalDetailBar('上海', 'deploy-shanghai', [156, 71, 87, 20]);
 createLocalDetailBar('深圳', 'deploy-shenzhen', [86, 67, 57, 13]);
 createLocalDetailBar('重庆', 'deploy-chongqing', [76, 11, 14, 9]);
 
+generatePie( "security-index",'安全指数', 83, '#43955a','#1b672f');
+generatePie( "op-index",'运维指数', 48, '#ffc000','#ac8300');
+generatePie( "virus-index",'疫情指数', 55, '#ea5513','#a93f0f');
+
 function requireCallback(ec) {
   echarts = ec;
   refresh();
@@ -201,26 +205,22 @@ function GenerateProvinceRandomValue() {
 
 function GenerateCityDetail() {
   var cities = [];
+  var allName = allCity.concat(allProvince);
   var i;
-  for (i = 0; i < allCity.length; i++) {
+  for (i = 0; i < allName.length; i++) {
     cities.push({
-      name: allCity[i],
-      net: '192.168.' + RoundRandom(254) + '.' + RoundRandom(254),
-      timer: RoundRandom(1000) + ' 分钟',
-      count: RoundRandom(100000),
-      uninstall: RoundRandom(100),
+      name: allName[i]
     });
   }
 
-  for (i = 0; i < allProvince.length; i++) {
-    cities.push({
-      name: allProvince[i],
-      net: '192.168.' + RoundRandom(254) + '.' + RoundRandom(254),
-      timer: RoundRandom(1000) + ' 分钟',
-      count: RoundRandom(100000),
-      uninstall: RoundRandom(100),
-
-    });
+  for (i = 0; i < cities.length; i++) {
+    cities[i].net = '192.168.' + RoundRandom(254) + '.' + RoundRandom(254);
+    cities[i].timer = RoundRandom(1000) + ' 分钟';
+    cities[i].count = RoundRandom(100000);
+    cities[i].uninstall = RoundRandom(100);
+    cities[i].security = RoundRandom(100);
+    cities[i].op = RoundRandom(100);
+    cities[i].virus = RoundRandom(100);
   }
   return cities;
 }

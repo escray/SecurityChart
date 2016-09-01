@@ -2,42 +2,26 @@
  * Created by escray on 8/21/16.
  */
 
-// TODO: bad taste, need refactor!
+
+
+
 var titleTop = 15;
-
-
-var securityDom = document.getElementById("security-index");
-var opDom = document.getElementById("op-index");
-var virusDom = document.getElementById("virus-index");
-
-
-
-var securityChart = echarts.init(securityDom);
-var opChart = echarts.init(opDom);
-var virusChart = echarts.init(virusDom);
-
-var labelFromatter = {
+var radius = [21, 25];
+var labelFormatter = {
   normal: {
     label: {
-
       formatter: function (params) {
         return 100 - params.value + '%'
       },
-      textStyle: {
-        baseline: 'top'
-      }
+      position: ['50%', '50%'],
     }
   },
 }
 
-securityOption = null;
-opOption = null;
-virusOption = null;
 
-
-var radius = [21, 25];
-
-securityOption = {
+var securityDom = document.getElementById("security-index");
+var securityChart = echarts.init(securityDom);
+var securityOption = {
   textStyle: {
     fontFamily: ['STXihei', 'Microsoft YaHei'],
     fontSize: 10,
@@ -59,7 +43,7 @@ securityOption = {
       startAngle: 90,
       radius: radius,
       x: '0%', // for funnel
-      itemsStyle: labelFromatter,
+      // itemsStyle: labelFormatter,
       data: [
         {
           name: 'other',
@@ -69,21 +53,16 @@ securityOption = {
               color: '#1b672f',
               label: {
                 show: false,
-                position: 'center'
               },
               labelLine: {
                 show: false
               }
             },
-            emphasis: {
-              color: 'rgba(0,0,0,0)'
-            }
           },
         },
         {
           name: '安全指数',
           value: 83,
-
           itemStyle: {
             normal: {
               color: '#43955a',
@@ -108,9 +87,13 @@ securityOption = {
     }
   ]
 };
+if (securityOption && typeof securityOption === "object") {
+  securityChart.setOption(securityOption, true);
+}
 
-
-opOption = {
+var opDom = document.getElementById("op-index");
+var opChart = echarts.init(opDom);
+var opOption = {
   textStyle: {
     fontFamily: ['STXihei', 'Microsoft YaHei'],
     fontSize: 10,
@@ -132,7 +115,7 @@ opOption = {
       startAngle: 90,
       radius: radius,
       x: '0%', // for funnel
-      itemsStyle: labelFromatter,
+      itemsStyle: labelFormatter,
       data: [
         {
           name: 'other',
@@ -142,7 +125,7 @@ opOption = {
               color: '#ac8300',
               label: {
                 show: false,
-                position: 'center'
+                // position: 'center'
               },
               labelLine: {
                 show: false
@@ -171,7 +154,7 @@ opOption = {
                 }
               },
               labelLine: {
-                show: false
+                show: true
               }
             }
           },
@@ -182,8 +165,14 @@ opOption = {
     }
   ]
 }
+if (opOption && typeof opOption === "object") {
+  opChart.setOption(opOption, true);
+}
 
-virusOption = {
+
+var virusDom = document.getElementById("virus-index");
+var virusChart = echarts.init(virusDom);
+var virusOption = {
   textStyle: {
     fontFamily: ['STXihei', 'Microsoft YaHei'],
     fontSize: 10,
@@ -205,7 +194,7 @@ virusOption = {
       startAngle: 90,
       radius: radius,
       x: '0%', // for funnel
-      itemsStyle: labelFromatter,
+      itemsStyle: labelFormatter,
       data: [
         {
           value: 45,
@@ -254,19 +243,6 @@ virusOption = {
     }
   ]
 }
-
-
-if (securityOption && typeof securityOption === "object") {
-
-  securityChart.setOption(securityOption, true);
-}
-
-if (opOption && typeof opOption === "object") {
-
-  opChart.setOption(opOption, true);
-}
-
 if (virusOption && typeof virusOption == "object") {
-
   virusChart.setOption(virusOption, true);
 }
