@@ -4,8 +4,37 @@ var chinaDom = document.getElementById('deploy-china');
 var localDom = document.getElementById('deploy-local');
 var descDom = document.getElementById('local-brief');
 
+var allCity = ['重庆市', '北京市', '天津市', '上海市', '香港', '澳门', '巴音郭楞蒙古自治州', '和田地区', '哈密地区', '阿克苏地区', '阿勒泰地区', '喀什地区', '塔城地区', '昌吉回族自治州', '克孜勒苏柯尔克孜自治州', '吐鲁番地区', '伊犁哈萨克自治州', '博尔塔拉蒙古自治州', '乌鲁木齐市', '克拉玛依市', '阿拉尔市', '图木舒克市', '五家渠市', '石河子市', '那曲地区', '阿里地区', '日喀则地区', '林芝地区', '昌都地区', '山南地区', '拉萨市', '呼伦贝尔市', '阿拉善盟', '锡林郭勒盟', '鄂尔多斯市', '赤峰市', '巴彦淖尔市', '通辽市', '乌兰察布市', '兴安盟', '包头市', '呼和浩特市', '乌海市', '海西蒙古族藏族自治州', '玉树藏族自治州', '果洛藏族自治州', '海南藏族自治州', '海北藏族自治州', '黄南藏族自治州', '海东地区', '西宁市', '甘孜藏族自治州', '阿坝藏族羌族自治州', '凉山彝族自治州', '绵阳市', '达州市', '广元市', '雅安市', '宜宾市', '乐山市', '南充市', '巴中市', '泸州市', '成都市', '资阳市', '攀枝花市', '眉山市', '广安市', '德阳市', '内江市', '遂宁市', '自贡市', '黑河市', '大兴安岭地区', '哈尔滨市', '齐齐哈尔市', '牡丹江市', '绥化市', '伊春市', '佳木斯市', '鸡西市', '双鸭山市', '大庆市', '鹤岗市', '七台河市', '酒泉市', '张掖市', '甘南藏族自治州', '武威市', '陇南市', '庆阳市', '白银市', '定西市', '天水市', '兰州市', '平凉市', '临夏回族自治州', '金昌市', '嘉峪关市', '普洱市', '红河哈尼族彝族自治州', '文山壮族苗族自治州', '曲靖市', '楚雄彝族自治州', '大理白族自治州', '临沧市', '迪庆藏族自治州', '昭通市', '昆明市', '丽江市', '西双版纳傣族自治州', '保山市', '玉溪市', '怒江傈僳族自治州', '德宏傣族景颇族自治州', '百色市', '河池市', '桂林市', '南宁市', '柳州市', '崇左市', '来宾市', '玉林市', '梧州市', '贺州市', '钦州市', '贵港市', '防城港市', '北海市', '怀化市', '永州市', '邵阳市', '郴州市', '常德市', '湘西土家族苗族自治州', '衡阳市', '岳阳市', '益阳市', '长沙市', '株洲市', '张家界市', '娄底市', '湘潭市', '榆林市', '延安市', '汉中市', '安康市', '商洛市', '宝鸡市', '渭南市', '咸阳市', '西安市', '铜川市', '清远市', '韶关市', '湛江市', '梅州市', '河源市', '肇庆市', '惠州市', '茂名市', '江门市', '阳江市', '云浮市', '广州市', '汕尾市', '揭阳市', '珠海市', '佛山市', '潮州市', '汕头市', '深圳市', '东莞市', '中山市', '延边朝鲜族自治州', '吉林市', '白城市', '松原市', '长春市', '白山市', '通化市', '四平市', '辽源市', '承德市', '张家口市', '保定市', '唐山市', '沧州市', '石家庄市', '邢台市', '邯郸市', '秦皇岛市', '衡水市', '廊坊市', '恩施土家族苗族自治州', '十堰市', '宜昌市', '襄樊市', '黄冈市', '荆州市', '荆门市', '咸宁市', '随州市', '孝感市', '武汉市', '黄石市', '神农架林区', '天门市', '仙桃市', '潜江市', '鄂州市', '遵义市', '黔东南苗族侗族自治州', '毕节地区', '黔南布依族苗族自治州', '铜仁地区', '黔西南布依族苗族自治州', '六盘水市', '安顺市', '贵阳市', '烟台市', '临沂市', '潍坊市', '青岛市', '菏泽市', '济宁市', '德州市', '滨州市', '聊城市', '东营市', '济南市', '泰安市', '威海市', '日照市', '淄博市', '枣庄市', '莱芜市', '赣州市', '吉安市', '上饶市', '九江市', '抚州市', '宜春市', '南昌市', '景德镇市', '萍乡市', '鹰潭市', '新余市', '南阳市', '信阳市', '洛阳市', '驻马店市', '周口市', '商丘市', '三门峡市', '新乡市', '平顶山市', '郑州市', '安阳市', '开封市', '焦作市', '许昌市', '濮阳市', '漯河市', '鹤壁市', '大连市', '朝阳市', '丹东市', '铁岭市', '沈阳市', '抚顺市', '葫芦岛市', '阜新市', '锦州市', '鞍山市', '本溪市', '营口市', '辽阳市', '盘锦市', '忻州市', '吕梁市', '临汾市', '晋中市', '运城市', '大同市', '长治市', '朔州市', '晋城市', '太原市', '阳泉市', '六安市', '安庆市', '滁州市', '宣城市', '阜阳市', '宿州市', '黄山市', '巢湖市', '亳州市', '池州市', '合肥市', '蚌埠市', '芜湖市', '淮北市', '淮南市', '马鞍山市', '铜陵市', '南平市', '三明市', '龙岩市', '宁德市', '福州市', '漳州市', '泉州市', '莆田市', '厦门市', '丽水市', '杭州市', '温州市', '宁波市', '舟山市', '台州市', '金华市', '衢州市', '绍兴市', '嘉兴市', '湖州市', '盐城市', '徐州市', '南通市', '淮安市', '苏州市', '宿迁市', '连云港市', '扬州市', '南京市', '泰州市', '无锡市', '常州市', '镇江市', '吴忠市', '中卫市', '固原市', '银川市', '石嘴山市', '儋州市', '文昌市', '乐东黎族自治县', '三亚市', '琼中黎族苗族自治县', '东方市', '海口市', '万宁市', '澄迈县', '白沙黎族自治县', '琼海市', '昌江黎族自治县', '临高县', '陵水黎族自治县', '屯昌县', '定安县', '保亭黎族苗族自治县',
+  '五指山市'];
 
-var createLocalDetailBar = function(cityName, elementId, cityData){
+var allProvince = ['北京', '天津', '上海', '重庆', '河北', '河南', '云南', '辽宁', '黑龙江', '湖南', '安徽', '山东', '新疆', '江苏', '浙江', '江西', '湖北', '广西', '甘肃', '山西', '内蒙古', '陕西', '吉林', '福建', '贵州', '广东', '青海', '西藏', '四川', '宁夏', '海南', '台湾', '香港', '澳门'];
+
+
+// var items = [
+//   {
+//     name: '绍兴市',
+//     net: '192.168.1.1',
+//     timer: '24801 分钟',
+//     count: 10573,
+//     uninstall: 78
+//   },
+//   {
+//     name: '杭州市',
+//     net: '192.168.1.1',
+//     timer: '10080 分钟',
+//     count: 2093,
+//     uninstall: 50
+//   },
+//   {
+//     name: '宁波市',
+//     net: '192.168.1.1',
+//     timer: '24801 分钟',
+//     count: 10573,
+//     uninstall: 78
+//   },
+// ];
+var items = GenerateCityDetail();
+var createLocalDetailBar = function (cityName, elementId, cityData) {
   var bjDom = document.getElementById(elementId);
   var bjChart = echarts.init(bjDom);
   var bjoption = {
@@ -44,7 +73,7 @@ var createLocalDetailBar = function(cityName, elementId, cityData){
 
         // data: ['已上线', '未上线', '未安装', '已卸载'],
         data: [{
-          value:cityName,
+          value: cityName,
           textStyle: {align: 'right',},
         }],
         splitLine: {
@@ -135,12 +164,89 @@ createLocalDetailBar('上海', 'deploy-shanghai', [156, 71, 87, 20]);
 createLocalDetailBar('深圳', 'deploy-shenzhen', [86, 67, 57, 13]);
 createLocalDetailBar('重庆', 'deploy-chongqing', [76, 11, 14, 9]);
 
-
-
 function requireCallback(ec) {
   echarts = ec;
   refresh();
   window.onresize = chinaChart.resize;
+}
+
+function showDetail(name) {
+  var i;
+
+  for (i = 0; i < items.length; i++) {
+    if (items[i].name === name) {
+      $('#province').text(items[i].name);
+      $('#local-net').text(items[i].net);
+      $('#local-count').text(items[i].count);
+      $('#local-timer').text(items[i].timer);
+      $('#local-uninstall').text(items[i].uninstall);
+
+      break;
+    }
+  }
+}
+
+function RoundRandom(num) {
+  return Math.round(Math.random() * num);
+}
+
+function GenerateCityRandomValue() {
+  var cities = [];
+  var i;
+  for (i = 0; i < allCity.length; i++) {
+    cities.push({
+      name: allCity[i],
+      value: RoundRandom(1000)
+    });
+  }
+  return cities;
+}
+
+function GenerateProvinceRandomValue() {
+  var provinces = [];
+  var i;
+
+  for (i = 0; i < allProvince.length; i++) {
+    if (allProvince[i] === "浙江") {
+      provinces.push({
+        name: allProvince[i],
+        selected: true
+      });
+    }
+    else {
+      provinces.push({
+        name: allProvince[i],
+        selected: false
+      });
+    }
+  }
+  return provinces;
+}
+
+function GenerateCityDetail() {
+  var cities = [];
+  var i;
+  for (i = 0; i < allCity.length; i++) {
+    cities.push({
+      name: allCity[i],
+      net: '192.168.' + RoundRandom(254) + '.' + RoundRandom(254),
+      timer: RoundRandom(1000) + ' 分钟',
+      count: RoundRandom(100000),
+      uninstall: RoundRandom(100),
+    });
+  }
+
+  for (i = 0; i < allProvince.length; i++) {
+    cities.push({
+      name: allProvince[i],
+      net: '192.168.' + RoundRandom(254) + '.' + RoundRandom(254),
+      timer: RoundRandom(1000) + ' 分钟',
+      count: RoundRandom(100000),
+      uninstall: RoundRandom(100),
+
+    });
+  }
+  return cities;
 }
 
 function showProvince(selectedProvince) {
@@ -161,6 +267,10 @@ function showProvince(selectedProvince) {
     },
 
   };
+
+  console.log(allCity.length);
+  var cities = GenerateCityRandomValue();
+
   //option.series[0].show = false;
   localOption.series = [{
     name: '随机数据',
@@ -175,371 +285,7 @@ function showProvince(selectedProvince) {
       width: '80%',
     },
     roam: false,
-    data: [
-      {name: '重庆市', value: Math.round(Math.random() * 1000)},
-      {name: '北京市', value: Math.round(Math.random() * 1000)},
-      {name: '天津市', value: Math.round(Math.random() * 1000)},
-      {name: '上海市', value: Math.round(Math.random() * 1000)},
-      {name: '香港', value: Math.round(Math.random() * 1000)},
-      {name: '澳门', value: Math.round(Math.random() * 1000)},
-      {name: '巴音郭楞蒙古自治州', value: Math.round(Math.random() * 1000)},
-      {name: '和田地区', value: Math.round(Math.random() * 1000)},
-      {name: '哈密地区', value: Math.round(Math.random() * 1000)},
-      {name: '阿克苏地区', value: Math.round(Math.random() * 1000)},
-      {name: '阿勒泰地区', value: Math.round(Math.random() * 1000)},
-      {name: '喀什地区', value: Math.round(Math.random() * 1000)},
-      {name: '塔城地区', value: Math.round(Math.random() * 1000)},
-      {name: '昌吉回族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '克孜勒苏柯尔克孜自治州', value: Math.round(Math.random() * 1000)},
-      {name: '吐鲁番地区', value: Math.round(Math.random() * 1000)},
-      {name: '伊犁哈萨克自治州', value: Math.round(Math.random() * 1000)},
-      {name: '博尔塔拉蒙古自治州', value: Math.round(Math.random() * 1000)},
-      {name: '乌鲁木齐市', value: Math.round(Math.random() * 1000)},
-      {name: '克拉玛依市', value: Math.round(Math.random() * 1000)},
-      {name: '阿拉尔市', value: Math.round(Math.random() * 1000)},
-      {name: '图木舒克市', value: Math.round(Math.random() * 1000)},
-      {name: '五家渠市', value: Math.round(Math.random() * 1000)},
-      {name: '石河子市', value: Math.round(Math.random() * 1000)},
-      {name: '那曲地区', value: Math.round(Math.random() * 1000)},
-      {name: '阿里地区', value: Math.round(Math.random() * 1000)},
-      {name: '日喀则地区', value: Math.round(Math.random() * 1000)},
-      {name: '林芝地区', value: Math.round(Math.random() * 1000)},
-      {name: '昌都地区', value: Math.round(Math.random() * 1000)},
-      {name: '山南地区', value: Math.round(Math.random() * 1000)},
-      {name: '拉萨市', value: Math.round(Math.random() * 1000)},
-      {name: '呼伦贝尔市', value: Math.round(Math.random() * 1000)},
-      {name: '阿拉善盟', value: Math.round(Math.random() * 1000)},
-      {name: '锡林郭勒盟', value: Math.round(Math.random() * 1000)},
-      {name: '鄂尔多斯市', value: Math.round(Math.random() * 1000)},
-      {name: '赤峰市', value: Math.round(Math.random() * 1000)},
-      {name: '巴彦淖尔市', value: Math.round(Math.random() * 1000)},
-      {name: '通辽市', value: Math.round(Math.random() * 1000)},
-      {name: '乌兰察布市', value: Math.round(Math.random() * 1000)},
-      {name: '兴安盟', value: Math.round(Math.random() * 1000)},
-      {name: '包头市', value: Math.round(Math.random() * 1000)},
-      {name: '呼和浩特市', value: Math.round(Math.random() * 1000)},
-      {name: '乌海市', value: Math.round(Math.random() * 1000)},
-      {name: '海西蒙古族藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '玉树藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '果洛藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '海南藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '海北藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '黄南藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '海东地区', value: Math.round(Math.random() * 1000)},
-      {name: '西宁市', value: Math.round(Math.random() * 1000)},
-      {name: '甘孜藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '阿坝藏族羌族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '凉山彝族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '绵阳市', value: Math.round(Math.random() * 1000)},
-      {name: '达州市', value: Math.round(Math.random() * 1000)},
-      {name: '广元市', value: Math.round(Math.random() * 1000)},
-      {name: '雅安市', value: Math.round(Math.random() * 1000)},
-      {name: '宜宾市', value: Math.round(Math.random() * 1000)},
-      {name: '乐山市', value: Math.round(Math.random() * 1000)},
-      {name: '南充市', value: Math.round(Math.random() * 1000)},
-      {name: '巴中市', value: Math.round(Math.random() * 1000)},
-      {name: '泸州市', value: Math.round(Math.random() * 1000)},
-      {name: '成都市', value: Math.round(Math.random() * 1000)},
-      {name: '资阳市', value: Math.round(Math.random() * 1000)},
-      {name: '攀枝花市', value: Math.round(Math.random() * 1000)},
-      {name: '眉山市', value: Math.round(Math.random() * 1000)},
-      {name: '广安市', value: Math.round(Math.random() * 1000)},
-      {name: '德阳市', value: Math.round(Math.random() * 1000)},
-      {name: '内江市', value: Math.round(Math.random() * 1000)},
-      {name: '遂宁市', value: Math.round(Math.random() * 1000)},
-      {name: '自贡市', value: Math.round(Math.random() * 1000)},
-      {name: '黑河市', value: Math.round(Math.random() * 1000)},
-      {name: '大兴安岭地区', value: Math.round(Math.random() * 1000)},
-      {name: '哈尔滨市', value: Math.round(Math.random() * 1000)},
-      {name: '齐齐哈尔市', value: Math.round(Math.random() * 1000)},
-      {name: '牡丹江市', value: Math.round(Math.random() * 1000)},
-      {name: '绥化市', value: Math.round(Math.random() * 1000)},
-      {name: '伊春市', value: Math.round(Math.random() * 1000)},
-      {name: '佳木斯市', value: Math.round(Math.random() * 1000)},
-      {name: '鸡西市', value: Math.round(Math.random() * 1000)},
-      {name: '双鸭山市', value: Math.round(Math.random() * 1000)},
-      {name: '大庆市', value: Math.round(Math.random() * 1000)},
-      {name: '鹤岗市', value: Math.round(Math.random() * 1000)},
-      {name: '七台河市', value: Math.round(Math.random() * 1000)},
-      {name: '酒泉市', value: Math.round(Math.random() * 1000)},
-      {name: '张掖市', value: Math.round(Math.random() * 1000)},
-      {name: '甘南藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '武威市', value: Math.round(Math.random() * 1000)},
-      {name: '陇南市', value: Math.round(Math.random() * 1000)},
-      {name: '庆阳市', value: Math.round(Math.random() * 1000)},
-      {name: '白银市', value: Math.round(Math.random() * 1000)},
-      {name: '定西市', value: Math.round(Math.random() * 1000)},
-      {name: '天水市', value: Math.round(Math.random() * 1000)},
-      {name: '兰州市', value: Math.round(Math.random() * 1000)},
-      {name: '平凉市', value: Math.round(Math.random() * 1000)},
-      {name: '临夏回族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '金昌市', value: Math.round(Math.random() * 1000)},
-      {name: '嘉峪关市', value: Math.round(Math.random() * 1000)},
-      {name: '普洱市', value: Math.round(Math.random() * 1000)},
-      {name: '红河哈尼族彝族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '文山壮族苗族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '曲靖市', value: Math.round(Math.random() * 1000)},
-      {name: '楚雄彝族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '大理白族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '临沧市', value: Math.round(Math.random() * 1000)},
-      {name: '迪庆藏族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '昭通市', value: Math.round(Math.random() * 1000)},
-      {name: '昆明市', value: Math.round(Math.random() * 1000)},
-      {name: '丽江市', value: Math.round(Math.random() * 1000)},
-      {name: '西双版纳傣族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '保山市', value: Math.round(Math.random() * 1000)},
-      {name: '玉溪市', value: Math.round(Math.random() * 1000)},
-      {name: '怒江傈僳族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '德宏傣族景颇族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '百色市', value: Math.round(Math.random() * 1000)},
-      {name: '河池市', value: Math.round(Math.random() * 1000)},
-      {name: '桂林市', value: Math.round(Math.random() * 1000)},
-      {name: '南宁市', value: Math.round(Math.random() * 1000)},
-      {name: '柳州市', value: Math.round(Math.random() * 1000)},
-      {name: '崇左市', value: Math.round(Math.random() * 1000)},
-      {name: '来宾市', value: Math.round(Math.random() * 1000)},
-      {name: '玉林市', value: Math.round(Math.random() * 1000)},
-      {name: '梧州市', value: Math.round(Math.random() * 1000)},
-      {name: '贺州市', value: Math.round(Math.random() * 1000)},
-      {name: '钦州市', value: Math.round(Math.random() * 1000)},
-      {name: '贵港市', value: Math.round(Math.random() * 1000)},
-      {name: '防城港市', value: Math.round(Math.random() * 1000)},
-      {name: '北海市', value: Math.round(Math.random() * 1000)},
-      {name: '怀化市', value: Math.round(Math.random() * 1000)},
-      {name: '永州市', value: Math.round(Math.random() * 1000)},
-      {name: '邵阳市', value: Math.round(Math.random() * 1000)},
-      {name: '郴州市', value: Math.round(Math.random() * 1000)},
-      {name: '常德市', value: Math.round(Math.random() * 1000)},
-      {name: '湘西土家族苗族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '衡阳市', value: Math.round(Math.random() * 1000)},
-      {name: '岳阳市', value: Math.round(Math.random() * 1000)},
-      {name: '益阳市', value: Math.round(Math.random() * 1000)},
-      {name: '长沙市', value: Math.round(Math.random() * 1000)},
-      {name: '株洲市', value: Math.round(Math.random() * 1000)},
-      {name: '张家界市', value: Math.round(Math.random() * 1000)},
-      {name: '娄底市', value: Math.round(Math.random() * 1000)},
-      {name: '湘潭市', value: Math.round(Math.random() * 1000)},
-      {name: '榆林市', value: Math.round(Math.random() * 1000)},
-      {name: '延安市', value: Math.round(Math.random() * 1000)},
-      {name: '汉中市', value: Math.round(Math.random() * 1000)},
-      {name: '安康市', value: Math.round(Math.random() * 1000)},
-      {name: '商洛市', value: Math.round(Math.random() * 1000)},
-      {name: '宝鸡市', value: Math.round(Math.random() * 1000)},
-      {name: '渭南市', value: Math.round(Math.random() * 1000)},
-      {name: '咸阳市', value: Math.round(Math.random() * 1000)},
-      {name: '西安市', value: Math.round(Math.random() * 1000)},
-      {name: '铜川市', value: Math.round(Math.random() * 1000)},
-      {name: '清远市', value: Math.round(Math.random() * 1000)},
-      {name: '韶关市', value: Math.round(Math.random() * 1000)},
-      {name: '湛江市', value: Math.round(Math.random() * 1000)},
-      {name: '梅州市', value: Math.round(Math.random() * 1000)},
-      {name: '河源市', value: Math.round(Math.random() * 1000)},
-      {name: '肇庆市', value: Math.round(Math.random() * 1000)},
-      {name: '惠州市', value: Math.round(Math.random() * 1000)},
-      {name: '茂名市', value: Math.round(Math.random() * 1000)},
-      {name: '江门市', value: Math.round(Math.random() * 1000)},
-      {name: '阳江市', value: Math.round(Math.random() * 1000)},
-      {name: '云浮市', value: Math.round(Math.random() * 1000)},
-      {name: '广州市', value: Math.round(Math.random() * 1000)},
-      {name: '汕尾市', value: Math.round(Math.random() * 1000)},
-      {name: '揭阳市', value: Math.round(Math.random() * 1000)},
-      {name: '珠海市', value: Math.round(Math.random() * 1000)},
-      {name: '佛山市', value: Math.round(Math.random() * 1000)},
-      {name: '潮州市', value: Math.round(Math.random() * 1000)},
-      {name: '汕头市', value: Math.round(Math.random() * 1000)},
-      {name: '深圳市', value: Math.round(Math.random() * 1000)},
-      {name: '东莞市', value: Math.round(Math.random() * 1000)},
-      {name: '中山市', value: Math.round(Math.random() * 1000)},
-      {name: '延边朝鲜族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '吉林市', value: Math.round(Math.random() * 1000)},
-      {name: '白城市', value: Math.round(Math.random() * 1000)},
-      {name: '松原市', value: Math.round(Math.random() * 1000)},
-      {name: '长春市', value: Math.round(Math.random() * 1000)},
-      {name: '白山市', value: Math.round(Math.random() * 1000)},
-      {name: '通化市', value: Math.round(Math.random() * 1000)},
-      {name: '四平市', value: Math.round(Math.random() * 1000)},
-      {name: '辽源市', value: Math.round(Math.random() * 1000)},
-      {name: '承德市', value: Math.round(Math.random() * 1000)},
-      {name: '张家口市', value: Math.round(Math.random() * 1000)},
-      {name: '保定市', value: Math.round(Math.random() * 1000)},
-      {name: '唐山市', value: Math.round(Math.random() * 1000)},
-      {name: '沧州市', value: Math.round(Math.random() * 1000)},
-      {name: '石家庄市', value: Math.round(Math.random() * 1000)},
-      {name: '邢台市', value: Math.round(Math.random() * 1000)},
-      {name: '邯郸市', value: Math.round(Math.random() * 1000)},
-      {name: '秦皇岛市', value: Math.round(Math.random() * 1000)},
-      {name: '衡水市', value: Math.round(Math.random() * 1000)},
-      {name: '廊坊市', value: Math.round(Math.random() * 1000)},
-      {name: '恩施土家族苗族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '十堰市', value: Math.round(Math.random() * 1000)},
-      {name: '宜昌市', value: Math.round(Math.random() * 1000)},
-      {name: '襄樊市', value: Math.round(Math.random() * 1000)},
-      {name: '黄冈市', value: Math.round(Math.random() * 1000)},
-      {name: '荆州市', value: Math.round(Math.random() * 1000)},
-      {name: '荆门市', value: Math.round(Math.random() * 1000)},
-      {name: '咸宁市', value: Math.round(Math.random() * 1000)},
-      {name: '随州市', value: Math.round(Math.random() * 1000)},
-      {name: '孝感市', value: Math.round(Math.random() * 1000)},
-      {name: '武汉市', value: Math.round(Math.random() * 1000)},
-      {name: '黄石市', value: Math.round(Math.random() * 1000)},
-      {name: '神农架林区', value: Math.round(Math.random() * 1000)},
-      {name: '天门市', value: Math.round(Math.random() * 1000)},
-      {name: '仙桃市', value: Math.round(Math.random() * 1000)},
-      {name: '潜江市', value: Math.round(Math.random() * 1000)},
-      {name: '鄂州市', value: Math.round(Math.random() * 1000)},
-      {name: '遵义市', value: Math.round(Math.random() * 1000)},
-      {name: '黔东南苗族侗族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '毕节地区', value: Math.round(Math.random() * 1000)},
-      {name: '黔南布依族苗族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '铜仁地区', value: Math.round(Math.random() * 1000)},
-      {name: '黔西南布依族苗族自治州', value: Math.round(Math.random() * 1000)},
-      {name: '六盘水市', value: Math.round(Math.random() * 1000)},
-      {name: '安顺市', value: Math.round(Math.random() * 1000)},
-      {name: '贵阳市', value: Math.round(Math.random() * 1000)},
-      {name: '烟台市', value: Math.round(Math.random() * 1000)},
-      {name: '临沂市', value: Math.round(Math.random() * 1000)},
-      {name: '潍坊市', value: Math.round(Math.random() * 1000)},
-      {name: '青岛市', value: Math.round(Math.random() * 1000)},
-      {name: '菏泽市', value: Math.round(Math.random() * 1000)},
-      {name: '济宁市', value: Math.round(Math.random() * 1000)},
-      {name: '德州市', value: Math.round(Math.random() * 1000)},
-      {name: '滨州市', value: Math.round(Math.random() * 1000)},
-      {name: '聊城市', value: Math.round(Math.random() * 1000)},
-      {name: '东营市', value: Math.round(Math.random() * 1000)},
-      {name: '济南市', value: Math.round(Math.random() * 1000)},
-      {name: '泰安市', value: Math.round(Math.random() * 1000)},
-      {name: '威海市', value: Math.round(Math.random() * 1000)},
-      {name: '日照市', value: Math.round(Math.random() * 1000)},
-      {name: '淄博市', value: Math.round(Math.random() * 1000)},
-      {name: '枣庄市', value: Math.round(Math.random() * 1000)},
-      {name: '莱芜市', value: Math.round(Math.random() * 1000)},
-      {name: '赣州市', value: Math.round(Math.random() * 1000)},
-      {name: '吉安市', value: Math.round(Math.random() * 1000)},
-      {name: '上饶市', value: Math.round(Math.random() * 1000)},
-      {name: '九江市', value: Math.round(Math.random() * 1000)},
-      {name: '抚州市', value: Math.round(Math.random() * 1000)},
-      {name: '宜春市', value: Math.round(Math.random() * 1000)},
-      {name: '南昌市', value: Math.round(Math.random() * 1000)},
-      {name: '景德镇市', value: Math.round(Math.random() * 1000)},
-      {name: '萍乡市', value: Math.round(Math.random() * 1000)},
-      {name: '鹰潭市', value: Math.round(Math.random() * 1000)},
-      {name: '新余市', value: Math.round(Math.random() * 1000)},
-      {name: '南阳市', value: Math.round(Math.random() * 1000)},
-      {name: '信阳市', value: Math.round(Math.random() * 1000)},
-      {name: '洛阳市', value: Math.round(Math.random() * 1000)},
-      {name: '驻马店市', value: Math.round(Math.random() * 1000)},
-      {name: '周口市', value: Math.round(Math.random() * 1000)},
-      {name: '商丘市', value: Math.round(Math.random() * 1000)},
-      {name: '三门峡市', value: Math.round(Math.random() * 1000)},
-      {name: '新乡市', value: Math.round(Math.random() * 1000)},
-      {name: '平顶山市', value: Math.round(Math.random() * 1000)},
-      {name: '郑州市', value: Math.round(Math.random() * 1000)},
-      {name: '安阳市', value: Math.round(Math.random() * 1000)},
-      {name: '开封市', value: Math.round(Math.random() * 1000)},
-      {name: '焦作市', value: Math.round(Math.random() * 1000)},
-      {name: '许昌市', value: Math.round(Math.random() * 1000)},
-      {name: '濮阳市', value: Math.round(Math.random() * 1000)},
-      {name: '漯河市', value: Math.round(Math.random() * 1000)},
-      {name: '鹤壁市', value: Math.round(Math.random() * 1000)},
-      {name: '大连市', value: Math.round(Math.random() * 1000)},
-      {name: '朝阳市', value: Math.round(Math.random() * 1000)},
-      {name: '丹东市', value: Math.round(Math.random() * 1000)},
-      {name: '铁岭市', value: Math.round(Math.random() * 1000)},
-      {name: '沈阳市', value: Math.round(Math.random() * 1000)},
-      {name: '抚顺市', value: Math.round(Math.random() * 1000)},
-      {name: '葫芦岛市', value: Math.round(Math.random() * 1000)},
-      {name: '阜新市', value: Math.round(Math.random() * 1000)},
-      {name: '锦州市', value: Math.round(Math.random() * 1000)},
-      {name: '鞍山市', value: Math.round(Math.random() * 1000)},
-      {name: '本溪市', value: Math.round(Math.random() * 1000)},
-      {name: '营口市', value: Math.round(Math.random() * 1000)},
-      {name: '辽阳市', value: Math.round(Math.random() * 1000)},
-      {name: '盘锦市', value: Math.round(Math.random() * 1000)},
-      {name: '忻州市', value: Math.round(Math.random() * 1000)},
-      {name: '吕梁市', value: Math.round(Math.random() * 1000)},
-      {name: '临汾市', value: Math.round(Math.random() * 1000)},
-      {name: '晋中市', value: Math.round(Math.random() * 1000)},
-      {name: '运城市', value: Math.round(Math.random() * 1000)},
-      {name: '大同市', value: Math.round(Math.random() * 1000)},
-      {name: '长治市', value: Math.round(Math.random() * 1000)},
-      {name: '朔州市', value: Math.round(Math.random() * 1000)},
-      {name: '晋城市', value: Math.round(Math.random() * 1000)},
-      {name: '太原市', value: Math.round(Math.random() * 1000)},
-      {name: '阳泉市', value: Math.round(Math.random() * 1000)},
-      {name: '六安市', value: Math.round(Math.random() * 1000)},
-      {name: '安庆市', value: Math.round(Math.random() * 1000)},
-      {name: '滁州市', value: Math.round(Math.random() * 1000)},
-      {name: '宣城市', value: Math.round(Math.random() * 1000)},
-      {name: '阜阳市', value: Math.round(Math.random() * 1000)},
-      {name: '宿州市', value: Math.round(Math.random() * 1000)},
-      {name: '黄山市', value: Math.round(Math.random() * 1000)},
-      {name: '巢湖市', value: Math.round(Math.random() * 1000)},
-      {name: '亳州市', value: Math.round(Math.random() * 1000)},
-      {name: '池州市', value: Math.round(Math.random() * 1000)},
-      {name: '合肥市', value: Math.round(Math.random() * 1000)},
-      {name: '蚌埠市', value: Math.round(Math.random() * 1000)},
-      {name: '芜湖市', value: Math.round(Math.random() * 1000)},
-      {name: '淮北市', value: Math.round(Math.random() * 1000)},
-      {name: '淮南市', value: Math.round(Math.random() * 1000)},
-      {name: '马鞍山市', value: Math.round(Math.random() * 1000)},
-      {name: '铜陵市', value: Math.round(Math.random() * 1000)},
-      {name: '南平市', value: Math.round(Math.random() * 1000)},
-      {name: '三明市', value: Math.round(Math.random() * 1000)},
-      {name: '龙岩市', value: Math.round(Math.random() * 1000)},
-      {name: '宁德市', value: Math.round(Math.random() * 1000)},
-      {name: '福州市', value: Math.round(Math.random() * 1000)},
-      {name: '漳州市', value: Math.round(Math.random() * 1000)},
-      {name: '泉州市', value: Math.round(Math.random() * 1000)},
-      {name: '莆田市', value: Math.round(Math.random() * 1000)},
-      {name: '厦门市', value: Math.round(Math.random() * 1000)},
-      {name: '丽水市', value: Math.round(Math.random() * 1000)},
-      {name: '杭州市', value: Math.round(Math.random() * 1000)},
-      {name: '温州市', value: Math.round(Math.random() * 1000)},
-      {name: '宁波市', value: Math.round(Math.random() * 1000)},
-      {name: '舟山市', value: Math.round(Math.random() * 1000)},
-      {name: '台州市', value: Math.round(Math.random() * 1000)},
-      {name: '金华市', value: Math.round(Math.random() * 1000)},
-      {name: '衢州市', value: Math.round(Math.random() * 1000)},
-      {name: '绍兴市', value: Math.round(Math.random() * 1000)},
-      {name: '嘉兴市', value: Math.round(Math.random() * 1000)},
-      {name: '湖州市', value: Math.round(Math.random() * 1000)},
-      {name: '盐城市', value: Math.round(Math.random() * 1000)},
-      {name: '徐州市', value: Math.round(Math.random() * 1000)},
-      {name: '南通市', value: Math.round(Math.random() * 1000)},
-      {name: '淮安市', value: Math.round(Math.random() * 1000)},
-      {name: '苏州市', value: Math.round(Math.random() * 1000)},
-      {name: '宿迁市', value: Math.round(Math.random() * 1000)},
-      {name: '连云港市', value: Math.round(Math.random() * 1000)},
-      {name: '扬州市', value: Math.round(Math.random() * 1000)},
-      {name: '南京市', value: Math.round(Math.random() * 1000)},
-      {name: '泰州市', value: Math.round(Math.random() * 1000)},
-      {name: '无锡市', value: Math.round(Math.random() * 1000)},
-      {name: '常州市', value: Math.round(Math.random() * 1000)},
-      {name: '镇江市', value: Math.round(Math.random() * 1000)},
-      {name: '吴忠市', value: Math.round(Math.random() * 1000)},
-      {name: '中卫市', value: Math.round(Math.random() * 1000)},
-      {name: '固原市', value: Math.round(Math.random() * 1000)},
-      {name: '银川市', value: Math.round(Math.random() * 1000)},
-      {name: '石嘴山市', value: Math.round(Math.random() * 1000)},
-      {name: '儋州市', value: Math.round(Math.random() * 1000)},
-      {name: '文昌市', value: Math.round(Math.random() * 1000)},
-      {name: '乐东黎族自治县', value: Math.round(Math.random() * 1000)},
-      {name: '三亚市', value: Math.round(Math.random() * 1000)},
-      {name: '琼中黎族苗族自治县', value: Math.round(Math.random() * 1000)},
-      {name: '东方市', value: Math.round(Math.random() * 1000)},
-      {name: '海口市', value: Math.round(Math.random() * 1000)},
-      {name: '万宁市', value: Math.round(Math.random() * 1000)},
-      {name: '澄迈县', value: Math.round(Math.random() * 1000)},
-      {name: '白沙黎族自治县', value: Math.round(Math.random() * 1000)},
-      {name: '琼海市', value: Math.round(Math.random() * 1000)},
-      {name: '昌江黎族自治县', value: Math.round(Math.random() * 1000)},
-      {name: '临高县', value: Math.round(Math.random() * 1000)},
-      {name: '陵水黎族自治县', value: Math.round(Math.random() * 1000)},
-      {name: '屯昌县', value: Math.round(Math.random() * 1000)},
-      {name: '定安县', value: Math.round(Math.random() * 1000)},
-      {name: '保亭黎族苗族自治县', value: Math.round(Math.random() * 1000)},
-      {name: '五指山市', value: Math.round(Math.random() * 1000)}
-    ]
+    data: cities,
   }];
   // option1.legend = {
   //   x: 'right',
@@ -557,10 +303,7 @@ function showProvince(selectedProvince) {
   };
 
   localChart.on('click', function (params) {
-    // 控制台打印数据的名称
-    //console.log(params);
-    console.log(params.name);
-    descDom.innerHTML = params.name;
+    showDetail(params.name);
   });
 
   localChart.setOption(localOption, true);
@@ -574,6 +317,8 @@ function refresh() {
   chinaChart = echarts.init(chinaDom);
   localChart = echarts.init(localDom);
   window.onresize = chinaChart.resize;
+
+  var provinces = GenerateProvinceRandomValue();
 
   var chinaOption = {
 
@@ -619,48 +364,15 @@ function refresh() {
           normal: {label: {show: true}},
           emphasis: {label: {show: true}}
         },
-        data: [
-          {name: '北京', selected: false},
-          {name: '天津', selected: false},
-          {name: '上海', selected: false},
-          {name: '重庆', selected: false},
-          {name: '河北', selected: false},
-          {name: '河南', selected: false},
-          {name: '云南', selected: false},
-          {name: '辽宁', selected: false},
-          {name: '黑龙江', selected: false},
-          {name: '湖南', selected: false},
-          {name: '安徽', selected: false},
-          {name: '山东', selected: false},
-          {name: '新疆', selected: false},
-          {name: '江苏', selected: false},
-          {name: '浙江', selected: true},
-          {name: '江西', selected: false},
-          {name: '湖北', selected: false},
-          {name: '广西', selected: false},
-          {name: '甘肃', selected: false},
-          {name: '山西', selected: false},
-          {name: '内蒙古', selected: false},
-          {name: '陕西', selected: false},
-          {name: '吉林', selected: false},
-          {name: '福建', selected: false},
-          {name: '贵州', selected: false},
-          {name: '广东', selected: false},
-          {name: '青海', selected: false},
-          {name: '西藏', selected: false},
-          {name: '四川', selected: false},
-          {name: '宁夏', selected: false},
-          {name: '海南', selected: false},
-          {name: '台湾', selected: false},
-          {name: '香港', selected: false},
-          {name: '澳门', selected: false}
-        ]
+        data: provinces,
+
       }
     ],
     animation: false
   };
   //chinaChart.setOption(chinaOption, true)
   showProvince('浙江');
+  showDetail('浙江');
   //var ecConfig = require('echarts/config');
 
   chinaChart.on('mapSelected', function (param) {
@@ -674,7 +386,7 @@ function refresh() {
         selectedProvince = name;
       }
     }
-    console.log(selectedProvince);
+    //console.log(selectedProvince);
     if (typeof selectedProvince == 'undefined') {
       // chinaOption.series.splice(1);
       // chinaOption.legend = null;
@@ -683,8 +395,10 @@ function refresh() {
       return;
     }
 
-    descDom.innerHTML = selectedProvince;
+    //descDom.innerHTML = selectedProvince;
+
     showProvince(selectedProvince);
+    showDetail(selectedProvince);
   });
   //localChart.setOption(option1, true);
   chinaChart.setOption(chinaOption, true)
@@ -700,16 +414,16 @@ require.config({
   }
 });
 
-launchExample();
+showMap();
 
-var isExampleLaunched;
+var isMapShow;
 
-function launchExample() {
-  if (isExampleLaunched) {
+function showMap() {
+  if (isMapShow) {
     return;
   }
   // 按需加载
-  isExampleLaunched = 1;
+  isMapShow = 1;
   require(
     [
       'echarts',
@@ -720,4 +434,3 @@ function launchExample() {
   );
 
 }
-
