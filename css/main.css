@@ -40,33 +40,33 @@ a {
     'border: 2px solid red;
 }
 
-.logo {
-    width: 20%;
-    display: inline-block;
-    text-align: left;
-    'border: 2px solid red;
-}
+/*.logo {*/
+    /*width: 20%;*/
+    /*display: inline-block;*/
+    /*text-align: left;*/
+    /*'border: 2px solid red;*/
+/*}*/
 
-.weather {
-    width: 20%;
-    display: inline-block;
-    text-align: center;
-    'border: 2px solid red;
-}
+/*.weather {*/
+    /*width: 20%;*/
+    /*display: inline-block;*/
+    /*text-align: center;*/
+    /*'border: 2px solid red;*/
+/*}*/
 
-.user {
-    width: 38%;
-    display: inline-block;
-    text-align: right;
-    'border: 2px solid red;
-}
+/*.user {*/
+    /*width: 38%;*/
+    /*display: inline-block;*/
+    /*text-align: right;*/
+    /*'border: 2px solid red;*/
+/*}*/
 
-.search {
-    width: 18%;
-    display: inline-block;
-    text-align: center;
-    'border: 2px solid red;
-}
+/*.search {*/
+    /*width: 18%;*/
+    /*display: inline-block;*/
+    /*text-align: center;*/
+    /*'border: 2px solid red;*/
+/*}*/
 
 .warning {
     text-align: center;
@@ -137,11 +137,15 @@ a {
     height: 30px;
     'border: 1px solid white;
     background-color: #191b22;
+    overflow: hidden;
+    diesplay: flex;
+    margin: 0 auto;
+
 }
 
 /* Make it a marquee */
 .marquee {
-    width: 100%;
+    width: 85%;
     margin: 0 auto;
     overflow: hidden;
     white-space: nowrap;
@@ -155,7 +159,7 @@ a {
 
 /* Make it move */
 @keyframes marquee {
-    0%   { text-indent: 20em }
+    0%   { text-indent: 40em }
     100% { text-indent: -80em }
 }
 
@@ -167,31 +171,30 @@ a {
 }
 
 
-/* ::before was :before before ::before was ::before - kthx */
-.info-text:before, .info-text::before {
-    z-index: 2;
-    content: '';
-    position: absolute;
-    top: -1em;
-    left: -1em;
-    width: .5em;
-    height: .5em;
-}
+/*!* ::before was :before before ::before was ::before - kthx *!*/
+/*.info-text:before, .info-text::before {*/
+    /*z-index: 2;*/
+    /*content: '';*/
+    /*position: absolute;*/
+    /*top: -1em;*/
+    /*left: -1em;*/
+    /*width: .5em;*/
+    /*height: .5em;*/
+/*}*/
 
-.info-text:after, .info-text::after {
-    z-index: 1;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2em;
-    height: 2em;
-
-    background-image: url(../images/speaker.png);
-    'background-image: url(../images/speaker.png), linear-gradient(90deg, #000 70%, #191b22);
-    background-repeat: no-repeat;
-    background-size: 30px 16px;
-}
+/*.info-text:after, .info-text::after {*/
+    /*z-index: 1;*/
+    /*content: '';*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: 2em;*/
+    /*height: 2em;*/
+    /*!*background-image: url(../images/speaker.png);*!*/
+    /*'background-image: url(../images/speaker.png), linear-gradient(90deg, #000 70%, #191b22);*/
+    /*!*background-repeat: no-repeat;*!*/
+    /*!*background-size: 30px 16px;*!*/
+/*}*/
 
 .center .dynamic-title {
     height: 5%;
