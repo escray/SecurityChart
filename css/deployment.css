@@ -10,6 +10,17 @@ body {
     color: #62686f;
 }
 
+.header {
+    width: 100%;
+    height: 36px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px groove #aaaaaa;
+
+    vertical-align: bottom;
+'display: inline-block;
+'border: 2px solid red;
+}
 
 .container {
 
