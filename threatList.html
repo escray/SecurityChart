@@ -8,23 +8,46 @@
 
     <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
     <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
-    <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
-    <!--<script type="text/javascript" src="js/echarts/map/js/world.js"></script>-->
     <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/threat.css">
     <link rel="stylesheet" href="css/normalize.css">
 
     <script src="js/jquery/2.0.2/jquery.min.js"></script>
     <script src="js/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script src="js/knockout/knockout-2.2.1.js"></script>
-    <script src="js/sevenSeg.js"></script>
+
+    <script src="js/CommonFunction.js"></script>
+
 </head>
 <body>
 <div class="container">
     <div class="header" id="header">header
         <script>$("#header").load("header.html")</script>
     </div>
+    <div class="threatCharts" id="threatCharts">
+        <div class="threat-comp" id="threat-comp"></div>
+        <div class="threat-source" id="threat-source"></div>
+        <div class="threat-trends" id="threat-trends"></div>
+    </div>
+    <div class="threatList" id="threatList">
+
+    </div>
+    <div class="threatInfo" id="threatInfo">
+        <img src="images/speaker.png" style="float:left; height: 16px; width: 28px;"/>
+        <p class="info-text marquee" style="float:left;">公告信息：kido 疫情爆发，请北京部署好防护端并尽快上线。禁止各网端开启8080端口！</p>
+    </div>
 </div>
+<script  type="text/javascript">
+
+    var elementId = "threat-comp";
+    var threatComposition = ['入侵行为','恶意木马','网络蠕虫','恶意病毒','0day攻击'];
+    var threatComp = [  {name: '入侵行为', count: 150},
+        {name: '恶意木马', count: 100},
+        {name: '网络蠕虫', count: 350},
+        {name: '恶意病毒', count: 220},
+        {name: '0day攻击', count: 200},];
+
+    generateThreatCompPie(elementId, threatComposition, threatComp);
+</script>
 </body>
 </html>
