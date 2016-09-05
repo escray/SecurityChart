@@ -106,23 +106,6 @@
     <script type="text/javascript" src="js/deploy-monitor.js"></script>
     <script type="text/javascript" src="js/yearly-warning.js"></script>
     <script type="text/javascript" src="js/monthly-rank.js"></script>
-    <script type="text/javascript" src="js/threat-source.js"></script>
-    <script type="text/javascript" src="js/threat-trends.js"></script>
     <script type="text/javascript" src="js/geo-visual.js"></script>
-    <!--<script type="text/javascript" src="js/index-list.js"></script>-->
-    <script type="text/javascript">
-        generatePie( "security-index",'安全指数', 83, '#43955a','#1b672f');
-        generatePie( "op-index",'运维指数', 48, '#ffc000','#ac8300');
-        generatePie( "virus-index",'疫情指数', 55, '#ea5513','#a93f0f');
-
-        $(function () {
-            var viewModel = {
-                mainExampleValue: ko.observable(-5.234),
-                testValue1: ko.observable(-12.4),
-                testValue2: ko.observable(9876)
-            };
-            ko.applyBindings(viewModel);
-        });
-    </script>
 </body>
 </html>
