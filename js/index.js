@@ -1,7 +1,7 @@
 /**
  * Created by escray on 9/6/16.
  */
-(function() {
+(function(){
   var elementId = "threat-comp";
   var threatComposition = ['入侵行为','恶意木马','网络蠕虫','恶意病毒','0day攻击'];
   var threatComp = [  {name: '入侵行为', count: 150},
