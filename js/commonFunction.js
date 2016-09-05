@@ -213,20 +213,14 @@ function generateThreatCompPie(elementId, threatComposition, threatComp) {
   }
 }
 
-function generateThreatSourcePie(elementId, threatSource, threatSourceData) {
+function generateThreatSourcePie(elementId, threatSource, threatSourceData, title) {
   var dom = document.getElementById(elementId);
   var myChart = echarts.init(dom);
   var option = {
     textStyle: {
       fontFamily: ['STXihei', 'Microsoft YaHei'],
     },
-    title : {
-      text: '威胁来源',
-      textStyle: {
-        fontSize: 12,
-        color: '#acacac',
-      },
-    },
+
     tooltip : {
       trigger: 'item',
       formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -340,13 +334,21 @@ function generateThreatSourcePie(elementId, threatSource, threatSourceData) {
       }
     ]
   };
-  ;
+
+  option.title = title ? title : {
+    text: '威胁来源',
+    textStyle: {
+      fontSize: 12,
+      color: '#acacac',
+    },
+  };
+
   if (option && typeof option === "object") {
     myChart.setOption(option, true);
   }
 }
 
-function generateThreatTrendsLine(elementId, subtitle, threatSort, xAxisData, threatData) {
+function generateThreatTrendsLine(elementId, threatSort, xAxisData, threatData, title) {
   var dom = document.getElementById(elementId);
   var myChart = echarts.init(dom);
 
@@ -354,18 +356,7 @@ function generateThreatTrendsLine(elementId, subtitle, threatSort, xAxisData, th
     textStyle: {
       fontFamily: ['STXihei', 'Microsoft YaHei'],
     },
-    title: {
-      text: '各类威胁发展趋势',
-      textStyle: {
-        fontSize: 12,
-        color: '#acacac',
-      },
-      subtext: subtitle,
-      subtextStyle: {
-        fontSize: 10,
-        color: '#ccc',
-      },
-    },
+
     tooltip: {
       trigger: 'axis'
     },
@@ -476,7 +467,18 @@ function generateThreatTrendsLine(elementId, subtitle, threatSort, xAxisData, th
 
     ]
   };
-  ;
+  option.title = title ? title : {
+    text: '各类威胁发展趋势',
+      textStyle: {
+      fontSize: 12,
+        color: '#acacac',
+    },
+    subtext: '威胁数量: 5.25 万',
+      subtextStyle: {
+      fontSize: 10,
+        color: '#ccc',
+    },
+  };
   if (option && typeof option === "object") {
     myChart.setOption(option, true);
   }

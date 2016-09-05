@@ -21,12 +21,24 @@
   generateThreatSourcePie('threat-source', threatSource, threatSourceData);
 
   var threatSort = ['网络入侵行为', '溢出攻击行为','木马恶意程序'];
-  var subtitle = '威胁数量: 5.25 万';
   var xAxisData = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
   var threatData = [{name: '网络入侵行为', count: [120, 132, 101, 134, 90, 230, 210, 200, 180, 160, 210, 145]},
     {name: '溢出攻击行为', count: [220, 182, 191, 234, 290, 330, 310, 280, 290, 310, 265, 240]},
     {name: '木马恶意程序', count: [150, 232, 201, 154, 190, 330, 410, 380, 420, 230, 320, 360]}];
-  generateThreatTrendsLine('threat-trends', subtitle, threatSort, xAxisData, threatData);
+  var threatTrendsTitle = {
+    text: '各类威胁发展趋势',
+    textStyle: {
+      fontSize: 14,
+      color: '#00c6ff',
+    },
+    left: 'center',
+    subtext: '威胁数量: 5.25 万',
+    subtextStyle: {
+      fontSize: 10,
+      color: '#ccc',
+    },
+  };
+  generateThreatTrendsLine('threat-trends', threatSort, xAxisData, threatData);
 
   generatePie( "security-index",'安全指数', 83, '#43955a','#1b672f');
   generatePie( "op-index",'运维指数', 48, '#ffc000','#ac8300');
