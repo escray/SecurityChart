@@ -117,4 +117,19 @@ background-color: #191b22;
     padding-top: 7px;
     padding-bottom: 2px;
     border: 1px groove;
+
+}
+
+.listHeader {
+    /*display: flex;*/
+    overflow: hidden;
+    width:100%;
+    border: 1px groove;
+}
+
+.form-control {
+    height: 24px;
+    width: 140px;
+    background-color: black;
+    float: left;
 }
