@@ -1,0 +1,3 @@
+INSERT INTO `PlatformLogOverFlow`(`dwNo`,`guidComputerID`,`guidCenterID`,`dwIP`,`strMAC`,`strProcessName`,`nDealResult`,`tmFindTime`,`tmAddTime`) VALUES (3,'30353030-3635-3832-4139-383600000000','','12.150.168.192','00505628A986','C:\WINDOWS\SYSTEM32\SVCHOST.EXE','处理成功','25/08/2016 10:26','25/08/2016 10:28');
+
+INSERT INTO `PlatformLogOverFlow`(`dwNo`,`guidComputerID`,`guidCenterID`,`dwIP`,`strMAC`,`strProcessName`,`nDealResult`,`tmFindTime`,`tmAddTime`) VALUES (2, '30353030-3635-3832-4139-383600000000','','12.150.168.192','00505628A986','C:\WINDOWS\SYSTEM32\SVCHOST.EXE','处理成功','24/06/2016 12:52','24/06/2016 12:53');
