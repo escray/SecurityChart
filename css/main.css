@@ -212,7 +212,8 @@ a {
 }
 
 .center .geo-visual {
-    height: 48%;
+    height: 55%;
+    'height: 48%;
     z-index: 1;
     'border: 1px solid white;
 }
