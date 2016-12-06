@@ -6,40 +6,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="js/echarts/echarts-all-3.js"></script>
     <script type="text/javascript" src="js/echarts/extension/dataTool.min.js"></script>
-    <script type="text/javascript" src="js/echarts/map/js/china.js"></script>
+    <!--<script type="text/javascript" src="js/echarts/map/js/china.js"></script>-->
     <!--<script type="text/javascript" src="js/echarts/map/js/world.js"></script>-->
-    <script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>
+    <!--<script type="text/javascript" src="js/echarts/extension/bmap.min.js"></script>-->
 
-    <link rel="stylesheet" href="css/main.css">
+    <!--<link rel="stylesheet" href="css/main.css">-->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
 
     <script src="js/jquery/2.0.2/jquery.min.js"></script>
     <script src="js/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script src="js/sql.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+
+
 
 </head>
 
 <body>
+<div id="error"></div>
+<div id="output">
+
+</div>
+<div id="res"></div>
+<div>
+    <table id="example1" class="display" width="100%"></table>
+
+</div>
+
 
 <script>
-    var db = new SQL.Database();
-    db.run("CREATE TABLE test(col1, col2);");
-    db.run("INSERT INTO test VALUES (?, ?), (?, ?)", [1, 111, 2, 222]);
 
-    var stmt = db.prepare("SELECT * FROM test WHERE col1 BETWEEN $start AND $end");
-    var row = stmt.getAsObject({$start:2, $end:2});
-    console.log(row);
+  var outputElm = document.getElementById('output');
+  var errorElm = document.getElementById('error');
 
-    stmt.bind({$start:1, $end:2});
-    var i = 0;
-    while(stmt.step() && i < 5) {
-        i++;
-        console.log(i);
-        var row = stmt.getAsObject();
-        console.log(row);
+  function print(text) {
+    outputElm.innerHTML = text.replace(/\n/g, '<br>');
+  }
+
+  function error(e) {
+    console.log(e);
+    errorElm.style.height = '2em';
+    errorElm.textContent = e.message;
+  }
+
+  function noerror() {
+    errorElm.style.height = '0';
+  }
+
+  var tableCreate = function() {
+    function valconcat(vals, tagName) {
+      if (vals.length == 0) return;
+      var open = '<'+tagName+'>', close = '</'+tagName+'>';
+      return open + vals.join(close+open) + close;
     }
 
+    return function(columns, values) {
+      var tbl = document.createElement('table');
+      tbl.setAttribute('id', 'logattack');
+      tbl.setAttribute('class', 'display');
+      tbl.setAttribute('cellspace', '0');
+      tbl.setAttribute('width', '100%');
+      var html = '<thead>' + valconcat(columns, 'th') + '</thead>';
+      var rows = values.map(function(v) {
+        return valconcat(v, 'td');
+      });
+      html += '<tbody>' + valconcat(rows, 'tr') + '</tbody>';
+      tbl.innerHTML = html;
+      return tbl;
+    }
+  }();
+
+  function execute(commands) {
+    var res = sqldb.exec(commands);
+    outputElm.innerHTML = "";
+    //for (var i = 0; i<result.length; i++) {
+      outputElm.appendChild(tableCreate(res[0].columns, res[0].values));
+    //}
+  }
+
+  function loadBinaryFile(path, success) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", path, true);
+    xhr.responseType = "arraybuffer";
+    xhr.onload = function () {
+      var data = new Uint8Array(xhr.response);
+      var arr = new Array();
+      for (var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+      success(arr.join(""));
+    };
+    xhr.send();
+  };
+
+  $(document).ready(function() {
+
+    var ds;
+    loadBinaryFile('./data/security.db', function (data) {
+      var sqldb = new SQL.Database(data);
+      var res = sqldb.exec("SELECT dwNo,guidComputer,guidCenter,dwIP,strProcessName FROM PlatformLogVirus");
+      ds = res[0].values;
+//      var output = res.length;
+//      output += res[0].columns.length;
+//      output += res[0].values.length;
+//      errorElm.textContent = output;
+//    execute("SELECT * FROM PlatformLogVirus");
+      //outputElm.innerHTML = "";
+      //for (var i = 0; i<result.length; i++) {
+      //outputElm.appendChild(tableCreate(res[0].columns, res[0].values));
+
+      $('#example1').DataTable( {
+        data: ds,
+        columns: [
+          { title: "Name" },
+          { title: "Position" },
+          { title: "Office" },
+          { title: "Extn." },
+//        { title: "Start date" },
+          { title: "Salary" }
+        ]
+      } );
+    });
+
+
+
+  } );
+
 </script>
+<script type="javascript" src="js/test.js"></script>
 </body>
 </html>
