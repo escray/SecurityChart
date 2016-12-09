@@ -32,28 +32,11 @@
 <div id="res"></div>
 <div>
     <table id="example1" class="display" width="100%"></table>
-
 </div>
-
-
 <script>
 
   var outputElm = document.getElementById('output');
   var errorElm = document.getElementById('error');
-
-  function print(text) {
-    outputElm.innerHTML = text.replace(/\n/g, '<br>');
-  }
-
-  function error(e) {
-    console.log(e);
-    errorElm.style.height = '2em';
-    errorElm.textContent = e.message;
-  }
-
-  function noerror() {
-    errorElm.style.height = '0';
-  }
 
   var tableCreate = function() {
     function valconcat(vals, tagName) {
@@ -131,6 +114,20 @@
 
 
   } );
+
+  function print(text) {
+    outputElm.innerHTML = text.replace(/\n/g, '<br>');
+  }
+
+  function noerror() {
+    errorElm.style.height = '0';
+  }
+
+  function error(e) {
+    console.log(e);
+    errorElm.style.height = '2em';
+    errorElm.textContent = e.message;
+  }
 
 </script>
 <script type="javascript" src="js/test.js"></script>
