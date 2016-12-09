@@ -9,13 +9,17 @@
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/jquery/2.0.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="js/sql.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="css/threatDynamicList.css" />
     <script type="text/javascript" src="js/threatDynamicList.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -46,7 +50,9 @@
               </ul>
               <div ng-show="tab.isSet(1)">
                   <h4>PlatformLogAttack</h4>
-
+                  <div>
+                      <table id="example1" class="display" width="100%">TABLE</table>
+                  </div>
               </div>
               <div ng-show="tab.isSet(2)">
                   <h4>PlatformLogVirus</h4>

@@ -19,4 +19,39 @@
       this.tab = activeTab;
     }
   });
+
+
+  console.log("ready");
+  var ds;
+  function loadBinaryFile(path, success) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", path, true);
+    xhr.responseType = "arraybuffer";
+    xhr.onload = function () {
+      var data = new Uint8Array(xhr.response);
+      var arr = new Array();
+      for (var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+      success(arr.join(""));
+    };
+    xhr.send();
+  };
+
+  loadBinaryFile('/data/security.db', function (data) {
+    var sqldb = new SQL.Database(data);
+    var res = sqldb.exec("SELECT dwNo,guidComputer,guidCenter,dwIP,strProcessName FROM PlatformLogVirus");
+    ds = res[0].values;
+
+    $('#example1').DataTable( {
+      data: ds,
+      columns: [
+        { title: "Name" },
+        { title: "Position" },
+        { title: "Office" },
+        { title: "Extn." },
+//        { title: "Start date" },
+        { title: "Salary" }
+      ]
+    } );
+  } );
 })();
+
